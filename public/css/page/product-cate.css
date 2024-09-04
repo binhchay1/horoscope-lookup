@@ -1,0 +1,477 @@
+.container {
+    max-width: 1430px;
+    margin: 0 auto;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    background-color: red;
+}
+
+.row2:after {
+    content: "";
+    display: table;
+    clear: both;
+    background-color: red;
+}
+
+.filter-box-group {
+    margin: 0 0 15px;
+}
+
+.filter-box-group .brand-filter-list,
+.filter-box-group .sort-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.filter-box-group .brand-filter-list a {
+    line-height: 42px;
+    height: 42px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(44, 44, 44, 0.35);
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 100px;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-box-group .brand-filter-list a:not(:first-child) {
+    margin-left: 15px;
+}
+
+.row {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.row1 {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.row2 {
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.section {
+    position: relative;
+}
+
+.section button {
+    height: 40px;
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+}
+
+#content-page button {
+    height: 40px;
+    width: auto;
+    font-weight: 550;
+}
+
+#content-page select {
+    height: 40px;
+    background: #eee;
+    border-radius: 5px;
+    font-weight: 550;
+}
+
+#content-page h2 {
+    margin-top: 22px;
+    width: 200px;
+}
+
+.sale-body {
+    margin-top: 30px;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#content-page h1 {
+    font-size: 35px;
+    line-height: 32px;
+    margin-bottom: 12px;
+    text-align: center;
+    color: red;
+}
+
+.product-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.flash-sale-title-area {
+    width: 100%;
+}
+
+.flash-sale-title {
+    font-size: 35px;
+    line-height: 32px;
+    margin-bottom: 12px;
+    text-align: center;
+    color: white !important;
+}
+
+.top-sale {
+    width: var(--flex-width);
+    background: linear-gradient(180deg, #f33b53 0%, #4a5052 100%);
+    border-radius: 10px;
+}
+
+.center {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.pagination {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4caf50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+#product-category-area select {
+    width: 20rem;
+    padding: 5px;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid;
+}
+
+#product-category-area button {
+    width: 8rem;
+    padding: 5px;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid;
+}
+
+#product-category-area button:hover {
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+#product-category-area select:hover {
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+#content-page ul pagination {
+    display: flex;
+    list-style: none;
+}
+
+.page-item {
+    list-style: none;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: black;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #4267b2;
+    border-color: #4267b2;
+    color: white;
+}
+
+.product-description {
+    margin-top: 15px;
+}
+
+.list-product-flex .product-item {
+    width: 31.2%;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: auto;
+    margin-top: 20px;
+}
+
+.flex-wrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-wrap: row;
+    flex-wrap: wrap;
+}
+
+.list-product-category {
+    margin: 12px 0 18px;
+}
+
+.list-product-category .product-image {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.product-item .product-info .product-title {
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 54px;
+    word-break: break-word;
+}
+
+.button-filter {
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.product-short-description {
+    margin: 0;
+}
+
+.select {
+    position: relative;
+}
+
+#select-sort div:not(:first-child) {
+    margin-left: 15px;
+}
+
+#select-price div {
+    margin-top: 15px;
+}
+
+#select-price div:not(:first-child) {
+    margin-left: 10px;
+}
+
+#sort {
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+#sort div {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.btn-xmark-by-url {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    cursor: pointer;
+}
+
+.border-btn-red {
+    border: 1px solid red !important;
+}
+
+.swiper-slide1 {
+    width: 223px;
+}
+
+.dropbtn {
+    display: none;
+}
+
+.dropbtn svg {
+    width: 20px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.area-title-filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.drop-menu-price-drop-up {
+    display: none;
+}
+
+.sort-drop-up {
+    display: none;
+}
+
+.select-sort-drop-up {
+    display: none;
+}
+
+.only-mobile-for-body {
+    .flex {
+        display: block !important;
+    }
+
+    .list-product-flex .product-item {
+        width: 100%;
+    }
+
+    .list-product-flex .product-item {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+
+    #select-sort div {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        margin-top: 10px;
+    }
+
+    #product-category-area select {
+        width: 100%;
+        margin-right: 10px;
+    }
+
+    .pagination {
+        padding: 0;
+    }
+
+    #select-price .sort-price-area div {
+        width: 48%;
+    }
+
+    .sort-price-area {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #select-price div:not(:first-child) {
+        margin-left: 0;
+    }
+
+    #select-price div button {
+        width: 100%;
+    }
+
+    #select-price {
+        display: flex !important;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    #product-category-area button {
+        width: 10rem;
+    }
+
+    #select-price h2 {
+        margin-left: 10px;
+    }
+
+    #content-page .swiper-slide1 {
+        width: 100%;
+    }
+
+    #select-sort button {
+        width: 100%;
+    }
+
+    #sort div {
+        margin-left: 10px;
+    }
+
+    #sort .flex-direction-column:not(:first-child) {
+        margin-top: 10px;
+    }
+
+    .sort div h2 {
+        margin-left: 10px;
+    }
+
+    .row2 {
+        display: block;
+    }
+
+    .filter-box-group .brand-filter-list,
+    .filter-box-group .sort-list {
+        justify-content: center;
+    }
+
+    .product-martket-main {
+        margin-top: 0;
+    }
+
+    .product-item .product-info .product-title {
+        height: auto;
+    }
+
+    .product-item .product-image {
+        height: 230px;
+    }
+
+    #content-page h1 {
+        font-size: 30px;
+    }
+
+    .area-process-in-mobile {
+        transition: all .5s ease;
+    }
+
+    .d-none-in-mobile {
+        display: none !important;
+    }
+
+    .dropbtn {
+        display: block;
+        background: none !important;
+    }
+}

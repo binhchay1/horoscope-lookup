@@ -1,0 +1,44 @@
+.show-button {
+    gap: 5px;
+}
+
+.show-button .edit-button {
+    background: #3b82f6;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.show-button .delete-button {
+    background: red;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.show-button .inport-storage {
+    background: #ffc600;
+    color: white;
+    border-radius: 5px;
+}
+
+.show-button .exp-storage {
+    background: #0d9334;
+    color: white;
+    border-radius: 5px;
+}
+
+.show-button .da-storage {
+    background: grey;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.show-button .lock-button {
+    background: grey;
+    color: white;
+    border-radius: 5px;
+}

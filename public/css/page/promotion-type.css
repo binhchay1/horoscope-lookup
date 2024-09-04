@@ -1,0 +1,380 @@
+.container-promotion {
+    width: 1200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.row {
+    background: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.column {
+    font-size: 16px;
+
+    @media (min-width: 360px) {
+        display: inline-block;
+        width: 33.33%;
+    }
+}
+
+.promotion h2 {
+    font-size: 14px;
+    padding-top: 0px;
+    height: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.promotion h2 a {
+    color: #004b91;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.promotion h2 a:hover {
+    color: dodgerblue;
+}
+
+.pac-market_time {
+    text-align: center;
+    margin-top: 5px;
+    color: #e00;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.parent {
+    padding: 10px;
+}
+
+.saleoff-heading {
+    margin-top: 30px;
+    background: #d4eaf7 url(/images/san-khuyen-mai.jpg) left top no-repeat;
+    height: 39px;
+    line-height: 39px;
+    color: #004890;
+    font-style: italic;
+    padding-left: 225px;
+    font-size: 13px;
+}
+
+.set-image-promotion {
+    width: 320px;
+    overflow: hidden;
+    padding: 0px 0px 0px 0px !important;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-promotion {
+    border: none;
+    max-width: 100%;
+    height: auto;
+}
+
+.column {
+    float: left;
+    width: 378px;
+    margin: 0px;
+    text-align: center;
+    border: 1px solid #ddd;
+    display: block;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.column:hover {
+    border-color: red;
+}
+
+.container {
+    position: relative;
+    max-width: 1430px;
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content-page {
+    box-sizing: border-box;
+}
+
+.column1 {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+}
+
+.column2 {
+    float: left;
+    width: 50%;
+    margin-right: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-fluid1 {
+    max-width: 100%;
+}
+
+.img-fluid2 {
+    max-width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.bg-light {
+    background: #f4f4f4 !important;
+}
+
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.child {
+    flex: 1 0 21%;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.hr {
+    margin-top: 30px;
+}
+
+.post {
+    box-sizing: border-box;
+}
+
+.column-post {
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+
+.column-post1 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.post_info_item-date {
+    font-size: 15px;
+}
+
+.post_info_item-author {
+    position: relative;
+    padding-left: 15px;
+    color: #005ec9;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#content {
+    display: flex;
+    margin-top: 20px;
+}
+
+#left {
+    width: 30%;
+}
+#right {
+    width: 80%;
+    padding: 0.5rem;
+    flex-grow: 1;
+}
+
+.parent1 {
+    display: flex;
+    flex-wrap: wrap;
+    background: #ffeded;
+    border-radius: 10px;
+    margin-top: -10px;
+}
+
+.child1 {
+    flex: 1 0 30%;
+    margin: 5px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.item-hot {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#content-right {
+    margin-top: 0;
+    margin-left: 20px;
+    width: 70%;
+}
+
+#content-page h4 {
+    margin-top: 0;
+}
+
+.h4 {
+    font-size: 21px;
+}
+
+#content-page h2 {
+    font-size: 16px;
+    line-height: 22px;
+    position: relative;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.top2 {
+    margin-top: 70px;
+}
+
+#content-page img {
+    border-radius: 5px;
+}
+
+.content-top {
+    margin-top: 10px;
+}
+
+.m-0 {
+    font-size: 15px;
+    color: black;
+}
+
+.content-tech {
+    margin-top: 30px;
+}
+
+.top5 {
+    display: flex;
+}
+
+.text-tech {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.row {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 30px;
+}
+
+.text-title {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 600;
+    padding: 16px 70px 16px 16px;
+    background: #d93031;
+    color: #fff;
+    display: inline-block;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+}
+
+.text-title1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 600;
+    padding: 0px 81px 7px 18px;
+    background: #d93031;
+    color: #fff;
+    display: inline-block;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+}
+
+#img-icon-hot {
+    width: 40px;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+
+#content-page a:hover {
+    color: red;
+}
+
+.only-mobile-for-body {
+    .container-promotion {
+        width: 100%;
+    }
+
+    #content-page img {
+        width: 100%;
+    }
+
+    .saleoff-heading {
+        display: none !important;
+    }
+
+    .post-data {
+        padding: 0;
+    }
+
+    .post-data .column {
+        width: 100%;
+        float: inherit;
+    }
+}

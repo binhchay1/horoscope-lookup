@@ -1,0 +1,22 @@
+.button-add {
+    margin: 10px;
+}
+
+.button-export {
+    background: rgb(69, 11, 11);
+    color: white;
+    border-radius: 5px;
+}
+
+.button-excel {
+    background: green;
+    color: white;
+    border-radius: 5px;
+}
+
+.button-import {
+    background: rgb(121, 121, 69);
+    color: white;
+    border-radius: 5px;
+}
+

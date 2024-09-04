@@ -1,0 +1,60 @@
+{
+  "node_modules/leaflet/dist/images/layers-2x.png": {
+    "file": "icons/layers-2x.png",
+    "src": "node_modules/leaflet/dist/images/layers-2x.png"
+  },
+  "node_modules/leaflet/dist/images/layers.png": {
+    "file": "icons/layers.png",
+    "src": "node_modules/leaflet/dist/images/layers.png"
+  },
+  "node_modules/leaflet/dist/images/marker-icon.png": {
+    "file": "icons/marker-icon.png",
+    "src": "node_modules/leaflet/dist/images/marker-icon.png"
+  },
+  "node_modules/remixicon/fonts/remixicon.eot": {
+    "file": "icons/remixicon.eot",
+    "src": "node_modules/remixicon/fonts/remixicon.eot"
+  },
+  "node_modules/remixicon/fonts/remixicon.svg": {
+    "file": "icons/remixicon.svg",
+    "src": "node_modules/remixicon/fonts/remixicon.svg"
+  },
+  "node_modules/remixicon/fonts/remixicon.ttf": {
+    "file": "icons/remixicon.ttf",
+    "src": "node_modules/remixicon/fonts/remixicon.ttf"
+  },
+  "node_modules/remixicon/fonts/remixicon.woff": {
+    "file": "icons/remixicon.woff",
+    "src": "node_modules/remixicon/fonts/remixicon.woff"
+  },
+  "node_modules/remixicon/fonts/remixicon.woff2": {
+    "file": "icons/remixicon.woff2",
+    "src": "node_modules/remixicon/fonts/remixicon.woff2"
+  },
+  "resources/images/auth-bg-dark.jpg": {
+    "file": "icons/auth-bg-dark.jpg",
+    "src": "resources/images/auth-bg-dark.jpg"
+  },
+  "resources/images/auth-bg.jpg": {
+    "file": "icons/auth-bg.jpg",
+    "src": "resources/images/auth-bg.jpg"
+  },
+  "resources/images/check-arrow.svg": {
+    "file": "icons/check-arrow.svg",
+    "src": "resources/images/check-arrow.svg"
+  },
+  "resources/images/radio-arrow.svg": {
+    "file": "icons/radio-arrow.svg",
+    "src": "resources/images/radio-arrow.svg"
+  },
+  "resources/scss/icons.scss": {
+    "file": "css/icons.min.css",
+    "isEntry": true,
+    "src": "resources/scss/icons.scss"
+  },
+  "resources/scss/tailwind.scss": {
+    "file": "css/tailwind.min.css",
+    "isEntry": true,
+    "src": "resources/scss/tailwind.scss"
+  }
+}
