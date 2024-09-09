@@ -7,22 +7,13 @@
     "require": {
         "php": "^8.1",
         "cohensive/embed": "^5.5",
-        "cviebrock/eloquent-sluggable": "^10.0",
-        "darryldecode/cart": "^4.2",
         "guzzlehttp/guzzle": "^7.2",
-        "josiasmontag/laravel-recaptchav3": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^3.0",
-        "maatwebsite/excel": "^3.1",
-        "mobiledetect/mobiledetectlib": "^4.8",
         "predis/predis": "^2.2",
-        "socialiteproviders/facebook": "^4.1",
-        "socialiteproviders/google": "^4.1",
-        "spatie/browsershot": "^3.61",
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {

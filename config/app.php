@@ -169,11 +169,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        // App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-        Darryldecode\Cart\CartServiceProvider::class,
         Cohensive\Embed\EmbedServiceProvider::class,
     ])->toArray(),
 
