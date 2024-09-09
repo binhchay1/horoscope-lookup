@@ -9,12 +9,14 @@
         "dont",
         "echarts",
         "fakerphp",
+        "fbcssmodules",
         "fullcalendar",
         "glightbox",
         "gmaps",
         "gridjs",
         "gsap",
         "guzzlehttp",
+        "iframewidget",
         "jairo",
         "josiasmontag",
         "lucide",
@@ -35,6 +37,7 @@
         "tailwindcss",
         "tanmuhittin",
         "toastify",
+        "tracuutuvi",
         "yoeunes"
     ]
 }

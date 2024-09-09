@@ -4,714 +4,426 @@
 <title>{{ __('Trang chủ') }} | Kattech PC</title>
 @endsection
 
-@section('css')
-<link rel="stylesheet" href="{{ asset('/plugins/owlcarousel/owl.theme.default.min.css') }}" />
-@endsection
 
 @section('content')
-<h1 style="position: absolute;top: -99999px">Kattech PC - Cửa Hàng Máy Tính PC Đồ Hoạ - Gaming chuyên nghiệp</h1>
-<section class="slider-banner">
-    <div class="slider-banner-main">
-        <div class="news-main">
-            <div class="news-main-left">
-                <div id="header-carousel" class="owl-carousel slide">
-                    <div class="carousel-inner-slide">
-                        @foreach($listSlide as $keyOwl => $slide)
-                        @if($keyOwl == 0)
-                        <div class="carousel-item active">
-                            <a href="{{ $slide['url'] }}">
-                                <img src="{{ asset($slide['image']) }}" width="920" height="500" alt="Image" class="lazy">
-                            </a>
-                        </div>
-                        @else
-                        <div class="carousel-item">
-                            <a href="{{ $slide['url'] }}">
-                                <img src="{{ asset($slide['image']) }}" width="920" height="500" alt="Image" class="lazy">
-                            </a>
-                        </div>
-                        @endif
-                        @endforeach
-                        <div class="swiper-button-next swiper-button-next-slide" tabindex="0" role="button" aria-label="Next slide" aria-controls="js-deal-box"></div>
-                        <div class="swiper-button-prev swiper-button-prev-slide" tabindex="0" role="button" aria-label="Previous slide" aria-controls="js-deal-box"></div>
-                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+<div class="bg-light start-header start-style">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand text-white" href="https://tracuutuvi.com/"><img
+                            src="uploads/images/logo.png" alt=""></a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" style="line-height: 1.4;">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse text-left" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto py-4 py-md-0">
+                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="account"
+                                    role="button" aria-haspopup="true" aria-expanded="false"><i
+                                        class="fas fa-search"></i> Tra cứu</a>
+                                <div class="dropdown-menu" style="min-width: 250px;right:0!important;left:auto;">
+                                    <div style="position: relative">
+                                        <a class="dropdown-item" href="https://xem.tracuutuvi.com/"><i
+                                                class="fas fa-tint"></i> Lập lá số tử vi</a>
+                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com"
+                                            target="_blank"><i class="fas fa-tint"></i> Tra cứu thần số học</a>
+                                        <a class="dropdown-item"
+                                            href="https://xem.tracuuthansohoc.com/than-so-hoc-cho-con"
+                                            target="_blank"><i class="fas fa-child"></i> Thần số học cho con</a>
+                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/disc"
+                                            target="_blank"><i class="fas fa-pen-square"></i> Trắc nghiệm DISC</a>
+                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/mbti"
+                                            target="_blank"><i class="fas fa-pen-square"></i> Trắc nghiệm MBTI</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="account"
+                                    role="button" aria-haspopup="true" aria-expanded="false"><i
+                                        class="fas fa-shopping-bag"></i> Mua Vip</a>
+                                <div class="dropdown-menu" style="min-width: 250px;right:0!important;left:auto;">
+                                    <div style="position: relative">
+                                        <a class="dropdown-item" href="purchase"><i class="fas fa-tint"></i> Mua Vip
+                                            tử vi</a>
+                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/purchase"
+                                            target="_blank"><i class="fas fa-tint"></i> Mua Vip thần số học</a>
+                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/purchase_kid"
+                                            target="_blank"><i class="fas fa-child"></i> Mua vip thần số học cho
+                                            con</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                <span class="nav-link"><a href="signup" class="text-white">Đăng ký</a> / <a
+                                        href="login" class="text-white">Đăng nhập</a></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="container" unselectable="on"
+    style="display: table;min-height: calc(100vh - 100px);padding:1px 10px;">
+    <div id="TUVI_CONTAINER">
+
+        <div class="initial-carousel-container content-container carousel-container"
+            style="margin: 15px auto 15px!important;">
+            <div class="signs-carousel">
+                <div class="sign-container sign-8-container"
+                    style="margin: 0px auto 10px!important;width: 200px;height: 200px;">
+                    <p class="sign-bg"></p>
+                    <p class="animated pulse infinite sign-image sign-8"></p>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center m-b-10 m-t-20" style="line-height: 1.5;font-size: 16px;color:#ffed00;"><b>TRA CỨU LÁ
+                SỐ TỬ VI</b><br> Lập lá số tử vi chính xác nhất</p>
+        <form action="" method="post" class="text-white">
+            <input type="hidden" name="from" value="">
+            <div class="form-row">
+                <div class="col-8">
+                    <p class="m-b-5">Họ tên khai sinh</p>
+                    <input type="text" name="full_name" value="" class="form-control"
+                        placeholder="Nhập đầy đủ họ tên khai sinh">
+                </div>
+                <div class="col">
+                    <p class="m-b-5">Giới</p>
+                    <select class="custom-select" name="gender">
+                        <option value="1">Nam giới</option>
+                        <option value="0">Nữ giới</option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-t-10">
+                <div class="form-row">
+                    <div class="col-4">
+                        <p class="m-b-5">Xem theo</p>
+                        <select class="custom-select" name="lich">
+                            <option value="1">Xem theo ngày sinh lịch dương</option>
+                            <option value="0">Xem theo ngày sinh lịch âm</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-b-5">Giờ sinh</p>
+                        <select name="hour" class="custom-select">
+                            <option value="0">0 giờ</option>
+                            <option value="1">1 giờ</option>
+                            <option value="2">2 giờ</option>
+                            <option value="3">3 giờ</option>
+                            <option value="4">4 giờ</option>
+                            <option value="5">5 giờ</option>
+                            <option value="6">6 giờ</option>
+                            <option value="7">7 giờ</option>
+                            <option value="8">8 giờ</option>
+                            <option value="9">9 giờ</option>
+                            <option value="10">10 giờ</option>
+                            <option value="11">11 giờ</option>
+                            <option selected="" value="12">12 giờ</option>
+                            <option value="13">13 giờ</option>
+                            <option value="14">14 giờ</option>
+                            <option value="15">15 giờ</option>
+                            <option value="16">16 giờ</option>
+                            <option value="17">17 giờ</option>
+                            <option value="18">18 giờ</option>
+                            <option value="19">19 giờ</option>
+                            <option value="20">20 giờ</option>
+                            <option value="21">21 giờ</option>
+                            <option value="22">22 giờ</option>
+                            <option value="23">23 giờ</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-b-5">Phút sinh</p>
+                        <select name="minute" class="custom-select">
+                            <option value="0">0 phút</option>
+                            <option value="1">1 phút</option>
+                            <option value="2">2 phút</option>
+                            <option value="3">3 phút</option>
+                            <option value="4">4 phút</option>
+                            <option value="5">5 phút</option>
+                            <option value="6">6 phút</option>
+                            <option value="7">7 phút</option>
+                            <option value="8">8 phút</option>
+                            <option value="9">9 phút</option>
+                            <option value="10">10 phút</option>
+                            <option value="11">11 phút</option>
+                            <option value="12">12 phút</option>
+                            <option value="13">13 phút</option>
+                            <option value="14">14 phút</option>
+                            <option value="15">15 phút</option>
+                            <option value="16">16 phút</option>
+                            <option value="17">17 phút</option>
+                            <option value="18">18 phút</option>
+                            <option value="19">19 phút</option>
+                            <option value="20">20 phút</option>
+                            <option value="21">21 phút</option>
+                            <option value="22">22 phút</option>
+                            <option value="23">23 phút</option>
+                            <option value="24">24 phút</option>
+                            <option value="25">25 phút</option>
+                            <option value="26">26 phút</option>
+                            <option value="27">27 phút</option>
+                            <option value="28">28 phút</option>
+                            <option value="29">29 phút</option>
+                            <option selected="" value="30">30 phút</option>
+                            <option value="31">31 phút</option>
+                            <option value="32">32 phút</option>
+                            <option value="33">33 phút</option>
+                            <option value="34">34 phút</option>
+                            <option value="35">35 phút</option>
+                            <option value="36">36 phút</option>
+                            <option value="37">37 phút</option>
+                            <option value="38">38 phút</option>
+                            <option value="39">39 phút</option>
+                            <option value="40">40 phút</option>
+                            <option value="41">41 phút</option>
+                            <option value="42">42 phút</option>
+                            <option value="43">43 phút</option>
+                            <option value="44">44 phút</option>
+                            <option value="45">45 phút</option>
+                            <option value="46">46 phút</option>
+                            <option value="47">47 phút</option>
+                            <option value="48">48 phút</option>
+                            <option value="49">49 phút</option>
+                            <option value="50">50 phút</option>
+                            <option value="51">51 phút</option>
+                            <option value="52">52 phút</option>
+                            <option value="53">53 phút</option>
+                            <option value="54">54 phút</option>
+                            <option value="55">55 phút</option>
+                            <option value="56">56 phút</option>
+                            <option value="57">57 phút</option>
+                            <option value="58">58 phút</option>
+                            <option value="59">59 phút</option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="news-main-right">
-                <div class="news-main-right-1">
-                    @if(isset($layout->small_thumbnail_1))
-                    @if($layout->hide_small_thumbnail_1 == 0)
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_1) ? $layout->permarklink_small_thumbnail_1 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_1) }}" width="500" class="lazy">
-                    </a>
-                    @endif
-                    @endif
-                </div>
-                <div class="news-main-right-2">
-                    @if(isset($layout->small_thumbnail_2))
-                    @if($layout->hide_small_thumbnail_2 == 0)
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_2) ? $layout->permarklink_small_thumbnail_2 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_2) }}" width="500" class="lazy">
-                    </a>
-                    @endif
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="news-main-under">
-        <div class="news-main-right-1">
-            @if(isset($layout->small_thumbnail_3))
-            @if($layout->hide_small_thumbnail_3 == 0)
-            <a href="{{ isset($layout->permarklink_small_thumbnail_3) ? $layout->permarklink_small_thumbnail_3 : '#' }}">
-                <img src="{{ asset($layout->small_thumbnail_3) }}" width="350" class="lazy">
-            </a>
-            @endif
-            @endif
-        </div>
-        <div class="news-main-right-2" style="margin-left: 10px;">
-            @if(isset($layout->small_thumbnail_4))
-            @if($layout->hide_small_thumbnail_4 == 0)
-            <a href="{{ isset($layout->permarklink_small_thumbnail_4) ? $layout->permarklink_small_thumbnail_4 : '#' }}">
-                <img src="{{ asset($layout->small_thumbnail_4) }}" width="350" class="lazy">
-            </a>
-            @endif
-            @endif
-        </div>
-        <div class="news-main-right-2" style="margin-left: 10px;">
-            @if(isset($layout->small_thumbnail_5))
-            @if($layout->hide_small_thumbnail_5 == 0)
-            <a href="{{ isset($layout->permarklink_small_thumbnail_5) ? $layout->permarklink_small_thumbnail_5 : '#' }}">
-                <img src="{{ asset($layout->small_thumbnail_5) }}" width="350" class="lazy">
-            </a>
-            @endif
-            @endif
-        </div>
-        <div class="news-main-right-2" style="margin-left: 10px;">
-            @if(isset($layout->small_thumbnail_6))
-            @if($layout->hide_small_thumbnail_6 == 0)
-            <a href="{{ isset($layout->permarklink_small_thumbnail_6) ? $layout->permarklink_small_thumbnail_6 : '#' }}">
-                <img src="{{ asset($layout->small_thumbnail_6) }}" width="350" class="lazy">
-            </a>
-            @endif
-            @endif
-        </div>
-    </div>
-</section>
-
-<section class="slider-banner-mobile">
-    <div class="slider-banner-main-mobile">
-        <div class="owl-carousel slide">
-            <div class="carousel-inner-slide-mobile">
-                @foreach($listSlide as $keyOwl => $slide)
-                @if($keyOwl == 0)
-                <div class="carousel-item active">
-                    <a href="{{ $slide['url'] }}">
-                        <img src="{{ asset($slide['image']) }}" width="100%" height="250" alt="Image" class="lazy">
-                    </a>
-                </div>
-                @else
-                <div class="carousel-item">
-                    <a href="{{ $slide['url'] }}">
-                        <img src="{{ asset($slide['image']) }}" width="100%" height="250" alt="Image" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endforeach
-                <div class="swiper-button-next swiper-button-next-slide-mobile" tabindex="0" role="button" aria-label="Next slide" aria-controls="js-deal-box"></div>
-                <div class="swiper-button-prev swiper-button-prev-slide-mobile" tabindex="0" role="button" aria-label="Previous slide" aria-controls="js-deal-box"></div>
-                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-            </div>
-        </div>
-    </div>
-    <div class="news-main-under-mobile">
-        <div class="owl-carousel slide">
-            <div class="carousel-inner-thumb">
-                @if(isset($layout->small_thumbnail_1))
-                @if($layout->hide_small_thumbnail_1 == 0)
-                <div class="news-main-right-1 carousel-item active">
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_1) ? $layout->permarklink_small_thumbnail_1 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_1) }}" width="100%" height="250" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endif
-                @if(isset($layout->small_thumbnail_2))
-                @if($layout->hide_small_thumbnail_2 == 0)
-                <div class="news-main-right-2 carousel-item">
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_2) ? $layout->permarklink_small_thumbnail_2 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_2) }}" width="100%" height="250" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endif
-                @if(isset($layout->small_thumbnail_3))
-                @if($layout->hide_small_thumbnail_3 == 0)
-                <div class="news-main-right-1 carousel-item">
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_3) ? $layout->permarklink_small_thumbnail_3 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_3) }}" width="100%" height="250" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endif
-                @if(isset($layout->small_thumbnail_4))
-                @if($layout->hide_small_thumbnail_4 == 0)
-                <div class="news-main-right-2 carousel-item">
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_4) ? $layout->permarklink_small_thumbnail_4 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_4) }}" width="100%" height="250" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endif
-                @if(isset($layout->small_thumbnail_5))
-                @if($layout->hide_small_thumbnail_5 == 0)
-                <div class="news-main-right-2 carousel-item">
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_5) ? $layout->permarklink_small_thumbnail_5 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_5) }}" width="100%" height="250" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endif
-                @if(isset($layout->small_thumbnail_6))
-                @if($layout->hide_small_thumbnail_6 == 0)
-                <div class="news-main-right-2 carousel-item">
-                    <a href="{{ isset($layout->permarklink_small_thumbnail_6) ? $layout->permarklink_small_thumbnail_6 : '#' }}">
-                        <img src="{{ asset($layout->small_thumbnail_6) }}" width="100%" height="250" class="lazy">
-                    </a>
-                </div>
-                @endif
-                @endif
-            </div>
-        </div>
-    </div>
-</section>
-
-@if(isset($getFlashSale->flash_sale_timer))
-@if(strtotime($getFlashSale->flash_sale_timer) >= strtotime(date('Y-m-d H:i:s')) and $getFlashSale->flash_sale_list_product_id != null)
-<section class="flash-sale-banner">
-    <div class="flash-sale-area">
-        <div class="d-flex align-items-center justify-content-between custom-mobile-flash-sale">
-            <div class="flash-sale-title-area d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center justify-content-center">
-                    <i class="fa fa-bolt"></i>
-                    <h2 class="flash-sale-title">{{ __('Flash sale') }}</h2>
-                </div>
-
-                <div class="d-flex align-items-center justify-content-center">
-                    <span class="text-time-deal-home">{{ __('Kết thúc sau') }}</span>
-                    <div class="global-time-dea d-flex align-items-center" id="timer-flashsale">
-
+            <div class="m-t-10">
+                <div class="form-row">
+                    <div class="col-4">
+                        <p class="m-b-5">Ngày sinh</p>
+                        <select class="custom-select" name="day">
+                            <option value="1">Ngày 1</option>
+                            <option value="2">Ngày 2</option>
+                            <option value="3">Ngày 3</option>
+                            <option value="4">Ngày 4</option>
+                            <option value="5">Ngày 5</option>
+                            <option value="6">Ngày 6</option>
+                            <option value="7">Ngày 7</option>
+                            <option value="8">Ngày 8</option>
+                            <option value="9">Ngày 9</option>
+                            <option value="10">Ngày 10</option>
+                            <option value="11">Ngày 11</option>
+                            <option value="12">Ngày 12</option>
+                            <option value="13">Ngày 13</option>
+                            <option value="14">Ngày 14</option>
+                            <option value="15">Ngày 15</option>
+                            <option value="16">Ngày 16</option>
+                            <option value="17">Ngày 17</option>
+                            <option value="18">Ngày 18</option>
+                            <option value="19">Ngày 19</option>
+                            <option value="20">Ngày 20</option>
+                            <option value="21">Ngày 21</option>
+                            <option value="22">Ngày 22</option>
+                            <option value="23">Ngày 23</option>
+                            <option value="24">Ngày 24</option>
+                            <option value="25">Ngày 25</option>
+                            <option value="26">Ngày 26</option>
+                            <option value="27">Ngày 27</option>
+                            <option value="28">Ngày 28</option>
+                            <option value="29">Ngày 29</option>
+                            <option value="30">Ngày 30</option>
+                            <option value="31">Ngày 31</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-b-5">Tháng sinh</p>
+                        <select class="custom-select" name="month">
+                            <option value="1">Tháng 1</option>
+                            <option value="2">Tháng 2</option>
+                            <option value="3">Tháng 3</option>
+                            <option value="4">Tháng 4</option>
+                            <option value="5">Tháng 5</option>
+                            <option value="6">Tháng 6</option>
+                            <option value="7">Tháng 7</option>
+                            <option value="8">Tháng 8</option>
+                            <option value="9">Tháng 9</option>
+                            <option value="10">Tháng 10</option>
+                            <option value="11">Tháng 11</option>
+                            <option value="12">Tháng 12</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <p class="m-b-5">Năm sinh</p>
+                        <input type="number" name="year" value="" class="form-control" placeholder="Năm sinh">
                     </div>
                 </div>
             </div>
 
-            <div>
-                <a href="{{ route('view.flash.sale') }}" class="view-more-flash-sale">{{ __('Xem thêm khuyến mãi') }} <i class="fa fa-caret-right"></i></a>
-            </div>
-        </div>
-
-        <div class="swiper box-list-item-deal swiper-box-deal swiper-initialized swiper-horizontal swiper-pointer-events">
-            <div class="swiper-wrapper d-flex swiper-flash-sale" style="margin-left: 10px;">
-                @if(isset($listFlashSale['flash_sale_list_product_id']))
-                @foreach($listFlashSale['flash_sale_list_product_id'] as $product)
-                <div class="swiper-slide" role="group">
-                    <div class="product-item">
-                        <a href="{{ route('productDetail', $product['slug']) }}" class="product-image position-relative">
-                            <img width="245" height="164" alt="{{ $product->name }}" class="hover-for-tooltips lazy hover-image" src="{{ asset(json_decode($product->image, true)[0]) }}" data-detail="{{ $product->detail }}" data-title="{{ $product->title }}" data-price="{{ $product->price }}" data-new-price="{{ $product->new_price }}" data-sale-detail="{{ $product->sale_detail }}" data-status-guarantee="{{ $product->status_guarantee }}" data-status="{{ $product->status }}">
-                        </a>
-                        <div class="product-info">
-                            <a href="{{ route('productDetail', $product['slug']) }}">
-                                <h3 class="product-title line-clamp-3">{{ $product->name }} </h3>
-                            </a>
-                            <div class="product-martket-main d-flex align-items-center">
-                                <p class="product-market-price">{{ $product->price }} ₫</p>
-                                <?php $new_price = floor(100 - (((int) $product->new_price / (int) str_replace('.', '', $product->price)) * 100)) ?>
-                                <div class="product-percent-price">-{{ ($new_price) }} %</div>
-                            </div>
-
-                            @if(isset($product->new_price))
-                            <div class="product-price-main font-weight-600">
-                                {{ number_format($product->new_price, 0, ',', '.') }} đ
-                            </div>
-                            @endif
-                            <div class="p-quantity-sale">
-                                <i class="sprite sprite-fire-deal"></i>
-                                <div class="bg-gradient"></div>
-                                <?php $total_line = ($product->stock / $product->sale_quantity) * 100 ?>
-                                <p class="js-line-deal-left" style="<?php echo 'width: ' . $total_line . '%' ?>"></p>
-                                <span style="font-size: 14px; font-weight: bold;">{{ __('Còn') }} {{ $product->stock }} / {{ $product->sale_quantity }} {{ __('sản phẩm') }}</span>
-                            </div>
-                        </div>
+            <div class="m-t-10">
+                <div class="form-row">
+                    <div class="col-6">
+                        <p class="m-b-5">Năm xem (âm lịch)</p>
+                        <select name="year_view" class="custom-select">
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option selected="" value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
+                            <option value="2039">2039</option>
+                            <option value="2040">2040</option>
+                            <option value="2041">2041</option>
+                            <option value="2042">2042</option>
+                            <option value="2043">2043</option>
+                            <option value="2044">2044</option>
+                            <option value="2045">2045</option>
+                            <option value="2046">2046</option>
+                            <option value="2047">2047</option>
+                            <option value="2048">2048</option>
+                            <option value="2049">2049</option>
+                            <option value="2050">2050</option>
+                            <option value="2051">2051</option>
+                            <option value="2052">2052</option>
+                            <option value="2053">2053</option>
+                            <option value="2054">2054</option>
+                            <option value="2055">2055</option>
+                            <option value="2056">2056</option>
+                            <option value="2057">2057</option>
+                            <option value="2058">2058</option>
+                            <option value="2059">2059</option>
+                            <option value="2060">2060</option>
+                            <option value="2061">2061</option>
+                            <option value="2062">2062</option>
+                            <option value="2063">2063</option>
+                            <option value="2064">2064</option>
+                            <option value="2065">2065</option>
+                            <option value="2066">2066</option>
+                            <option value="2067">2067</option>
+                            <option value="2068">2068</option>
+                            <option value="2069">2069</option>
+                            <option value="2070">2070</option>
+                            <option value="2071">2071</option>
+                            <option value="2072">2072</option>
+                            <option value="2073">2073</option>
+                            <option value="2074">2074</option>
+                            <option value="2075">2075</option>
+                            <option value="2076">2076</option>
+                            <option value="2077">2077</option>
+                            <option value="2078">2078</option>
+                            <option value="2079">2079</option>
+                            <option value="2080">2080</option>
+                            <option value="2081">2081</option>
+                            <option value="2082">2082</option>
+                            <option value="2083">2083</option>
+                            <option value="2084">2084</option>
+                            <option value="2085">2085</option>
+                            <option value="2086">2086</option>
+                            <option value="2087">2087</option>
+                            <option value="2088">2088</option>
+                            <option value="2089">2089</option>
+                            <option value="2090">2090</option>
+                            <option value="2091">2091</option>
+                            <option value="2092">2092</option>
+                            <option value="2093">2093</option>
+                            <option value="2094">2094</option>
+                            <option value="2095">2095</option>
+                            <option value="2096">2096</option>
+                            <option value="2097">2097</option>
+                            <option value="2098">2098</option>
+                            <option value="2099">2099</option>
+                            <option value="2100">2100</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-b-5">Tháng xem (âm lịch)</p>
+                        <select name="month_view" class="custom-select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option selected="" value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
                     </div>
                 </div>
-                @endforeach
-                @endif
             </div>
-            <div class="swiper-button-next swiper-button-next-flash-sale" tabindex="0" role="button" aria-label="Next slide" aria-controls="js-deal-box"></div>
-            <div class="swiper-button-prev swiper-button-prev-flash-sale" tabindex="0" role="button" aria-label="Previous slide" aria-controls="js-deal-box"></div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            <div class="m-t-20">
+                <button class="button" type="submit"><i class="fas fa-file"></i> Lập lá số</button>
+            </div>
+        </form>
+        <div class="m-t-15 text-left" style="padding:10px;border-radius: 10px;background: #ffffffd4;">
+            <b>CHÚ THÍCH:</b><br>
+            - Năm xem (âm lịch) và tháng xem (âm lịch) bạn chọn để an thêm các sao lưu vào trong lá số của bạn và
+            tính tiểu hạn!<br>
+            - Xem lại các luận giải lá số bạn đã tra cứu VIP tại <a href="account?a=history&amp;type=9"
+                style="color:#007bff!important;">Lịch sử tra cứu</a>
         </div>
     </div>
 </section>
-@endif
-@endif
-
-@if(count($listHotSale))
-<section class="top-sale">
-    <div class="flash-sale-area">
-        <div class="d-flex align-items-center justify-content-between hot-sale-mobile">
-            <div class="flash-sale-title-area d-flex align-items-center justify-content-center">
-                <h2 class="flash-sale-title">{{ __('Sản phẩm bán chạy') }}</h2>
-            </div>
-
-            <div>
-                <a href="{{ route('view.top.sale') }}" class="view-more-flash-sale" style="color: #f3070f">{{ __('Xem thêm sản phẩm bán chạy') }} <i class="fa fa-caret-right"></i></a>
-            </div>
-        </div>
-
-        <div class="swiper d-flex">
-            <div class="box-banner-collection">
-                @if(isset($layout->hot_sale_big_thumbnail))
-                <a href="{{ isset($layout->permarklink_hot_sale_big_thumbnail) ? $layout->permarklink_hot_sale_big_thumbnail : '#' }}" class="banner-collection boder-radius-10">
-                    <img src="{{ asset($layout->hot_sale_big_thumbnail) }}" width="660" height="430" class="boder-radius-10 lazy">
-                </a>
-                @endif
-            </div>
-            <div class="swiper-wrapper swiper-top-sale">
-                @foreach($listHotSale as $product)
-                <div class="swiper-slide1" role="group">
-                    <div class="product-item">
-                        <a href="{{ route('productDetail', $product->slug) }}" class="product-image position-relative">
-                            @if(isset($product->image))
-                            <img src="{{ asset(json_decode($product->image, true)[0]) }}" width="210" height="164" class="hover-for-tooltips lazy hover-image" data-detail="{{ $product->detail }}" data-title="{{ $product->title }}" data-price="{{ $product->price }}" data-new-price="{{ $product->new_price }}" data-sale-detail="{{ $product->sale_detail }}" data-status-guarantee="{{ $product->status_guarantee }}" data-status="{{ $product->status }}">
-                            @endif
-                        </a>
-                        <div class="product-info">
-                            <a href="">
-                                <h3 class="product-title line-clamp-3">{{ $product->name }} </h3>
-                            </a>
-                            <div class="product-martket-main d-flex align-items-center">
-                                <p class="product-market-price">{{ $product->price }} ₫</p>
-                                <?php $new_price = floor(100 - (((int) $product->new_price / (int) $product->price) * 100)) ?>
-                                <div class="product-percent-price">-{{ ($new_price) }} %</div>
-                            </div>
-                            <div class="product-price-main font-weight-600">
-                                {{ $product->new_price }} đ
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="swiper-button-next swiper-button-next-top-sale" tabindex="0" role="button" aria-label="Next slide" aria-controls="js-deal-box"></div>
-            <div class="swiper-button-prev swiper-button-prev-top-sale" tabindex="0" role="button" aria-label="Previous slide" aria-controls="js-deal-box"></div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-        </div>
-    </div>
-</section>
-@endif
-
-<section class="category">
-    <div class="d-flex align-items-center justify-content-between">
-        <div class="flash-sale-title-area d-flex align-items-center justify-content-center">
-            <h2 class="flash-sale-title">{{ __('Danh mục sản phẩm') }}</h2>
-        </div>
-    </div>
-    <div class="flex-container">
-        @foreach($listCategoryProduct as $category)
-        @if($category->status == 1 && $category->parent == 0)
-        <a href="{{ route('showDataCategory', $category->slug) }}" class="d-flex flex-column text-center category-home-page">
-            <img src="{{ asset($category->image) }}" class="item-hot lazy" width="70" height="70">
-            <span class="policy-title">{{ $category->name }}</span>
-        </a>
-        @endif
-        @endforeach
-    </div>
-</section>
-
-@foreach($listCategoryProduct as $category)
-
-@if(count($category->products) == 0)
-@continue
-@endif
-
-@if($category->parent == 0 && $category->status == 1)
-<section class="product-slide">
-    <div class="product-slide-main boder-radius-10">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="title">
-                <a href="{{ route('showDataCategory', $category['slug']) }}">
-                    <h2 class="title-box font-weight-600">{{ $category->name }}</h2>
-                </a>
-                <i class="fa fa-truck hide-mobile"></i>
-                <p class="hide-mobile">{{ __('Miễn phí giao hàng') }}</p>
-            </div>
-
-            <div class="list-category-child d-flex align-items-center justify-content-end flex-1">
-                @foreach($category->children as $children)
-                <a href="{{ route('showDataCategory', $children['slug']) }}" class="title-category">{{ $children->name }}</a>
-                @endforeach
-                <a href="{{ route('showDataCategory', $category['slug']) }}" class="title-all-category hover-color-all">{{ __('Xem tất cả') }} <i class="fa fa-caret-right"></i></a>
-            </div>
-        </div>
-        <div class="swiper">
-            <div class="swiper-wrapper swiper-product-{{ $category->slug }}">
-                @foreach($category->products as $product)
-                <div class="swiper-slide" role="group">
-                    <div class="product-item">
-                        <a href="{{ route('productDetail', $product['slug']) }}" class="product-image position-relative">
-                            <img src="{{  asset(json_decode($product->image, true)[0]) }}" width="204" height="164" class="hover-for-tooltips lazy hover-image" data-detail="{{ $product->detail }}" data-title="{{ $product->title }}" data-price="{{ $product->price }}" data-new-price="{{ $product->new_price }}" data-sale-detail="{{ $product->sale_detail }}" data-status-guarantee="{{ $product->status_guarantee }}" data-status="{{ $product->status }}">
-                            @if($product->hot_status == 1)
-                            <span class="p-type-holder">
-                                <i class="p-icon-type p-icon-hot"></i>
-                            </span>
-                            @endif
-                            @if($product->hot_sale_status == 1)
-                            <span class="p-type-holder p-type-holder-2">
-                                <i class="p-icon-type p-icon-best-sale"></i>
-                            </span>
-                            @endif
-                        </a>
-                        <div class="product-info">
-                            <a href="{{ route('productDetail', $product['slug']) }}">
-                                <h3 class="product-title line-clamp-3">{{ $product->name }}</h3>
-                            </a>
-                            @if($product->new_price != null)
-                            <div class="product-martket-main d-flex align-items-center">
-                                <p class="product-market-price">{{ $product->price }} ₫</p>
-                                <?php $new_price = floor(100 - (((int) $product->new_price / (int) $product->price) * 100)) ?>
-                                <div class="product-percent-price">- {{ $new_price }} %</div>
-                            </div>
-
-                            <div class="product-price-main font-weight-600">
-                                {{ $product->new_price }} đ
-                            </div>
-                            @else
-                            <div class="product-price-main font-weight-600">
-                                {{ $product->price }} đ
-                            </div>
-                            @endif
-                            <div class="product-offer line-clamp-2">
-                                <p>{!! Str::limit($product->sale_detail, 100, ' ...') ?? ""!!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="swiper-button-next swiper-button-next-product-{{ $category->slug }}" tabindex="0" role="button" aria-label="Next slide"></div>
-            <div class="swiper-button-prev swiper-button-prev-product-{{ $category->slug }}" tabindex="0" role="button" aria-label="Previous slide"></div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-        </div>
-    </div>
-</section>
-@endif
-@endforeach
-
-@if(count($listPromotion) > 0)
-<section class="content-sale">
-    <div class="box-article-group boder-radius-10">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="title-box">
-                <h2 class="title-box font-weight-600">{{ __('Khuyến mại') }}</h2>
-            </div>
-            <a href="{{ route('promotion') }}" class="btn-article-group hover-color-all">{{ __('Xem tất cả') }} <i class="fa fa-caret-right"></i></a>
-        </div>
-        <div class="list-article-group d-flex align-items-center custom-mobile-promotion">
-            @foreach($listPromotion as $promotion)
-            <div class="item-article d-flex gap-12">
-                <a href="{{ route('promotion.detail', $promotion->slug) }}" class="img-article boder-radius-10 position-relative">
-                    <img class="lazy" src="{{ asset($promotion->image) }}" alt="Banner">
-                </a>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
-@if(count($listNews) > 0)
-<section class="content-news">
-    <div class="box-article-group boder-radius-10">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="title-box">
-                <h2 class="title-box font-weight-600">{{ __('Tin tức công nghệ') }}</h2>
-            </div>
-            <a href="{{ route('post') }}" class="btn-article-group hover-color-all">{{ __('Xem tất cả') }} <i class="fa fa-caret-right"></i></a>
-        </div>
-        <div class="list-article-group d-flex" id="list-post-home">
-            @foreach($listNews as $news)
-            <div class="item-article d-flex gap-12">
-                <a href="{{ route('post.detail', $news['slug']) }}" class="img-article boder-radius-10 position-relative">
-                    <img class="boder-radius-10" src="{{ asset($news->thumbnail) ?? asset('/images/test_post/2904-viettel-dau-gia-thanh-cong-bang-tan-5g-1.jpg') }}" alt="Viettel trúng đấu giá băng tần để chính thức triển khai 5G tại Việt Nam">
-                </a>
-                <div class="content-article content-article-item d-flex flex-column flex-1">
-                    <a href="{{ route('post.detail', $news['slug']) }}" class="title-article">
-                        <h3 class="font-weight-400 line-clamp-2">{{ Str::limit(($news->title), 50) }}</h3>
-                    </a>
-                    <p class="time-article d-flex align-items-center gap-4">
-                        <i class="sprite sprite-clock-item-article"></i>
-                        <span>{{ date_format($news->created_at, "F j, Y, g:i a") }}</span>
-                    </p>
-                    <p class="descreption-article line-clamp-2">{!! Str::limit(($news->short_description), 150)!!}</p>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
-@if(count($listYoutube) > 0)
-<section class="content-news">
-    <div class="box-videos-group box-article-group position-relative boder-radius-10">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="title-box">
-                <h2 class="title-box font-weight-600">{{ __('Youtube Channel') }}</h2>
-            </div>
-            <a href="https://www.youtube.com/@kattechpc" class="btn-article-group hover-color-all">{{ __('Xem tất cả') }} <i class="fa fa-caret-right"></i></a>
-        </div>
-        <div class="list-article-group d-flex" id="list-post-home">
-            @foreach($listYoutube as $youtube)
-            <div class="item-article d-flex gap-12">
-                <div class="content-article content-article-item d-flex flex-column flex-1">
-                    <a class="img-article boder-radius-10 position-relative" data-url="{{ $youtube->link }}" onclick="watchYoutubeVideo($(this))">
-                        <img class="boder-radius-10" src="{{ asset($youtube->thumbnail) }}" alt="{{ $youtube->title }}">
-                        <i class="sprite sprite-play-youtube incon-play-youtube"></i>
-                    </a>
-                    <a class="title-article" data-url="{{ $youtube->link }}" onclick="watchYoutubeVideo($(this))">
-                        <p style="font-size: 14px;">{{ $youtube->title }}</p>
-                    </a>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
-<section class="review">
-    <div class="box-review-from-customer boder-radius-10">
-        <div class="title-box">
-            <h2 class="title-box font-weight-600">{{ __('Đánh giá từ khách hàng') }}</h2>
-        </div>
-        <div class="list-review-customer-homepage">
-            <div class="swiper">
-                <div class="swiper-wrapper swiper-review-customer">
-                    @foreach($listCustomerReview as $customerReview)
-                    <div class="swiper-slide-review" role="group">
-                        <div class="item-review-customer-hompage d-flex align-items-center">
-                            <div class="left-review position-relative">
-                                <img src="{{ asset($customerReview->thumbnail) }}" width="88" height="93" class="lazy" alt="avatar">
-                            </div>
-                            <div class="right-review">
-                                <p class="text-review line-clamp-2">
-                                    {{ $customerReview->customer_review }}
-                                </p>
-                                <b class="author-review font-weight-500">- {{ $customerReview->customer_name }} -</b>
-                                <img src="{{ asset('/images/page/5star-customer.png') }}" width="80" height="15" class="lazy" alt="avatar">
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-
-            @if(!$isMobile)
-            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                @if(count($listCustomerReview) > 4)
-
-                @php
-                $totalPag = count($listCustomerReview) - 4 + 1;
-                @endphp
-
-                @for($i = 0; $i < $totalPag; $i++) @if($i==0) <span class="swiper-pagination-bullet swiper-pagination-bullet-active" data-id="swiper-pagination-bullet-{{ $i + 1 }}" tabindex="0" role="button" aria-label="Go to slide {{ $i + 1 }}"></span>
-                    @else
-                    <span class="swiper-pagination-bullet" data-id="swiper-pagination-bullet-{{ $i + 1 }}" tabindex="0" role="button" aria-label="Go to slide {{ $i + 1 }}"></span>
-                    @endif
-                    @endfor
-                    @else
-                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span>
-                    @endif
-            </div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-            @else
-            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                @if(count($listCustomerReview) >= 2)
-
-                @php
-                $totalPag = count($listCustomerReview);
-                @endphp
-
-                @for($i = 0; $i < $totalPag; $i++) @if($i==0) <span class="swiper-pagination-bullet swiper-pagination-bullet-active" data-id="swiper-pagination-bullet-{{ $i + 1 }}" tabindex="0" role="button" aria-label="Go to slide {{ $i + 1 }}"></span>
-                    @else
-                    <span class="swiper-pagination-bullet" data-id="swiper-pagination-bullet-{{ $i + 1 }}" tabindex="0" role="button" aria-label="Go to slide {{ $i + 1 }}"></span>
-                    @endif
-                    @endfor
-                    @else
-                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span>
-                    @endif
-            </div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-            @endif
-        </div>
-    </div>
-</section>
-
-@if($listSlideFooter)
-<section id="slide-footer">
-    <div class="flash-sale-area">
-        <div class="swiper">
-            <div class="swiper-wrapper swiper-footer-slide">
-                @foreach($listSlideFooter as $slide)
-                <div class="swiper-slide2" role="group" style="width: 286px;">
-                    <div class="product-item1" style="min-height: 0 !important;">
-                        <img src="{{ $slide['image_footer'] }}" width="275" height="300" class="lazy">
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="swiper-button-next swiper-button-next-footer-slide" tabindex="0" role="button" aria-label="Next slide"></div>
-            <div class="swiper-button-prev swiper-button-prev-footer-slide" tabindex="0" role="button" aria-label="Previous slide"></div>
-        </div>
-    </div>
-</section>
-@endif
-
-@include('includes.tooltips')
 @endsection
 
 @section('js')
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('/plugins/owlcarousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('/js/page/main.js') }}"></script>
-<script>
-    <?php if (isset($listFlashSale['flash_sale_timer'])) { ?>
-        let countTimeSale = `<?php echo $listFlashSale['flash_sale_timer'] ?>`;
-
-        var countDownDate = new Date(countTimeSale).getTime();
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            var strDays = '';
-            var strHours = '';
-            var strMinutes = '';
-            var strSeconds = '';
-
-            if (days < 10) {
-                strDays = '0' + days;
-            } else {
-                strDays = days;
-            }
-
-            if (hours < 10) {
-                strHours = '0' + hours;
-            } else {
-                strHours = hours;
-            }
-
-            if (minutes < 10) {
-                strMinutes = '0' + minutes;
-            } else {
-                strMinutes = minutes;
-            }
-
-            if (seconds < 10) {
-                strSeconds = '0' + seconds;
-            } else {
-                strSeconds = seconds;
-            }
-
-            $('#timer-flashsale').empty();
-            $('#timer-flashsale').append('<p>' + strDays + '</p><span>:</span><p>' + strHours + '</p><span>:</span><p>' + strMinutes + '</p><span>:</span><p>' + strSeconds + '</p>');
-
-            if (distance < 0) {
-                clearInterval(x);
-                $('#timer-flashsale').empty();
-                $('#timer-flashsale').append('<p>EXPIRED</p>');
-            }
-        }, 1000);
-    <?php } ?>
-
-    const listCategory = <?php echo json_encode($listCategory) ?>;
-
-    let listSlideOwl = $('.carousel-inner-slide .carousel-item');
-    let totalListSlideOwl = listSlideOwl.length;
-
-    let listSlideMobileOwl = $('.carousel-inner-slide-mobile .carousel-item');
-    let totalListSlideMobileOwl = listSlideMobileOwl.length;
-
-    let listThumbOwl = $('.carousel-inner-thumb .carousel-item');
-    let totalListThumbOwl = listThumbOwl.length;
-
-    if (totalListSlideOwl > 1) {
-        handleOwl(listSlideOwl, '.swiper-button-next-slide', '.swiper-button-prev-slide');
-    } else {
-        $('.swiper-button-next-slide').addClass('d-none');
-        $('.swiper-button-prev-slide').addClass('d-none');
-    }
-
-    if (totalListSlideMobileOwl > 1) {
-        handleOwl(listSlideMobileOwl, '.swiper-button-next-slide-mobile', '.swiper-button-prev-slide-mobile');
-    } else {
-        $('.swiper-button-next-slide-mobile').addClass('d-none');
-        $('.swiper-button-prev-slide-mobile').addClass('d-none');
-    }
-
-    if (totalListThumbOwl > 1) {
-        handleOwl(listThumbOwl, '.swiper-button-next-slide-mobile', '.swiper-button-prev-slide-mobile');
-    } else {
-        $('.swiper-button-next-thumb').addClass('d-none');
-        $('.swiper-button-prev-thumb').addClass('d-none');
-    }
-
-    function handleOwl(list, next, prev) {
-        let countOwl = 0;
-        let intervalOwl = setInterval(function() {
-            if (countOwl == list.length - 1) {
-                list[countOwl].classList.remove('active');
-                countOwl = 0;
-                nextOwl = countOwl;
-                list[nextOwl].classList.add('active');
-
-            } else {
-                nextOwl = countOwl + 1;
-
-                list[countOwl].classList.remove('active');
-                list[nextOwl].classList.add('active');
-            }
-
-            countOwl++;
-        }, 3000);
-
-        $(next).on('click', function() {
-            if (countOwl == list.length - 1) {
-                return;
-
-            } else {
-                list[countOwl].classList.remove('active');
-                list[countOwl + 1].classList.add('active');
-                countOwl++;
-            }
-
-            clearInterval(intervalOwl);
-        });
-
-        $(prev).on('click', function() {
-            if (countOwl == 0) {
-                return;
-            } else {
-                list[countOwl].classList.remove('active');
-                list[countOwl - 1].classList.add('active');
-                countOwl--;
-            }
-
-            clearInterval(intervalOwl);
-        });
-    }
-</script>
 @endsection
