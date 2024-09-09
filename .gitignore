@@ -16,3 +16,5 @@ yarn-error.log
 /.fleet
 /.idea
 /public/images/upload/*
+composer.lock
+package-lock.json
