@@ -6,6 +6,7 @@
         "ckeditor",
         "cohensive",
         "cropperjs",
+        "customizer",
         "dont",
         "echarts",
         "fakerphp",
@@ -20,8 +21,10 @@
         "jairo",
         "josiasmontag",
         "lucide",
+        "MBTI",
         "nouislider",
         "nunomaduro",
+        "optiona",
         "pestphp",
         "pickr",
         "plyr",
@@ -36,8 +39,11 @@
         "tailwick",
         "tailwindcss",
         "tanmuhittin",
+        "Themesdesign",
         "toastify",
+        "topbar",
         "tracuutuvi",
+        "TUVI",
         "yoeunes"
     ]
 }

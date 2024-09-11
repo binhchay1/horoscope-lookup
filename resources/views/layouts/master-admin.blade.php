@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>@yield('title') | Kattech PC</title>
+    <title>@yield('title') | env('APP_NAME', 'TUVI')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta content="Minimal Admin & Dashboard Template" name="description">
@@ -48,14 +48,16 @@
         <div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
             <div id="message">
                 @if(Session::has('success'))
-                    <script>
-                        toastr.optiona = {
-                            "progressBar" :true,
-                            "closeButton" : true
-                        }
-                        toastr.success("{{Session::get('success')}}", 'Success!',{timeout:12000000})
-                    </script>
-                    @endif
+                <script>
+                    toastr.optiona = {
+                        "progressBar": true,
+                        "closeButton": true
+                    }
+                    toastr.success("{{Session::get('success')}}", 'Success!', {
+                        timeout: 12000000
+                    })
+                </script>
+                @endif
             </div>
             @yield('content')
         </div>
@@ -70,34 +72,9 @@
 <script src="{{ URL::asset('build/libs/list.js/list.min.js') }}"></script>
 <script src="{{ URL::asset('build/libs/list.pagination.js/list.pagination.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
-<script src="https://wurfl.io/wurfl.js"></script>
 <script src="{{ URL::asset('js/admin/main-admin.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script>
-    function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
-
 </body>
 
 </html>
