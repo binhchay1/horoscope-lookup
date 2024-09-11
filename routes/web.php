@@ -25,7 +25,7 @@ Route::get('/500', [ErrorController::class, 'view500'])->name('error.500');
 Route::get('/503', [ErrorController::class, 'view503'])->name('error.503');
 Route::get('/', [HomeController::class, 'viewHome'])->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
     Route::get('/dashboard', [AdminController::class, 'viewDashBoard'])->name('admin.dashboard');
 
     Route::group(['prefix' => 'users'], function () {
@@ -35,9 +35,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::get('/update/{user}', [UserController::class, 'editUser'])->name('admin.user.edit');
         Route::post('/update/{user}', [UserController::class, 'updateUser'])->name('admin.user.update');
         Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('admin.user.delete');
-        Route::get('/lock-user/{id}', [UserController::class, 'lockUser'])->name('admin.user.lockUser');
-        Route::get('/export-user', [UserController::class, 'exportUser'])->name('admin.user.export');
-
     });
 
     Route::group(['prefix' => 'profile'], function () {

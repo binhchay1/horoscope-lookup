@@ -1,13 +1,5 @@
 @extends('layouts.page')
 
-@section('title')
-<title>{{ __('Đăng nhập') }} | Kattech PC</title>
-@endsection
-
-@section('description', __('Đăng nhập để tiếp tục với Kattech PC'))
-@section('keywords', 'login, kattechpc, kattech')
-@section('breadcrumb', __('Đăng nhập'))
-
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/page/auth.css') }}" />
 @endsection
@@ -64,18 +56,6 @@
                     <button class="login100-form-btn">
                         {{ __('ĐĂNG NHẬP') }}
                     </button>
-                </div>
-
-                <div class="btn-login-social">
-                    <a href="{{ route('auth.facebook') }}" class="btn-face">
-                        <img src="{{ asset('images/logo/icon-facebook.png') }}" width="30" height="31" />
-                        Facebook
-                    </a>
-
-                    <a href="{{ route('auth.google') }}" class="btn-google">
-                        <img src="{{ asset('images/logo/icon-google.png') }}" width="30" height="31" />
-                        Google
-                    </a>
                 </div>
 
                 <div class="w-full text-center p-t-55">
