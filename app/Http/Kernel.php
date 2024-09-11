@@ -68,9 +68,5 @@ class Kernel extends HttpKernel
         'admin' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'user' => \App\Http\Middleware\IsUser::class,
         'admin' => \App\Http\Middleware\IsAdmin::class,
-        'cache.menu' => \App\Http\Middleware\CacheMenuDefined::class,
-        'count.visitor' => \App\Http\Middleware\CountVisitor::class,
-        'maintenance' => \App\Http\Middleware\MaintenanceMode::class,
-        'session-maintenance-mode' => \App\Http\Middleware\SessionMaintenanceMode::class,
     ];
 }
