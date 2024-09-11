@@ -306,7 +306,7 @@
     display: none !important;
 }
 body {
-    background: url(../images/bg.jpg);
+    background: url(../../images/bg.jpg);
     background-size: cover !important;
     z-index: -500;
     background-color: #220c08;
@@ -764,7 +764,7 @@ th {
     right: 0;
     bottom: 0;
     margin: 0;
-    background: url(../images/sign-mandala-bg.png) no-repeat center;
+    background: url(../../images/sign/sign-mandala-bg.png) no-repeat center;
     background-size: cover;
     -webkit-animation: spin 60s linear infinite;
     animation: spin 60s linear infinite;
@@ -797,34 +797,34 @@ th {
     text-shadow: 4px 2px 8px #333;
 }
 .sign-0 {
-    background: url(../images/sign-0-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-0-bg.jpg) no-repeat center;
 }
 .sign-1 {
-    background: url(../images/sign-1-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-1-bg.jpg) no-repeat center;
 }
 .sign-2 {
-    background: url(../images/sign-2-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-2-bg.jpg) no-repeat center;
 }
 .sign-3 {
-    background: url(../images/sign-3-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-3-bg.jpg) no-repeat center;
 }
 .sign-4 {
-    background: url(../images/sign-4-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-4-bg.jpg) no-repeat center;
 }
 .sign-5 {
-    background: url(../images/sign-5-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-5-bg.jpg) no-repeat center;
 }
 .sign-6 {
-    background: url(../images/sign-6-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-6-bg.jpg) no-repeat center;
 }
 .sign-7 {
-    background: url(../images/sign-7-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-7-bg.jpg) no-repeat center;
 }
 .sign-8 {
-    background: url(../images/sign-8-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-8-bg.jpg) no-repeat center;
 }
 .sign-9 {
-    background: url(../images/sign-9-bg.jpg) no-repeat center;
+    background: url(../../images/sign/sign-9-bg.jpg) no-repeat center;
 }
 andalas-wrapper {
     overflow: hidden;

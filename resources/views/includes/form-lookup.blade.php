@@ -1,4 +1,4 @@
-<form action="" method="post" class="text-white">
+<form action="{{ route('lookup') }}" method="post" class="text-white">
     <input type="hidden" name="from" value="">
     <div class="form-row">
         <div class="col-8">

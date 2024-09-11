@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-md">
-                    <a class="navbar-brand text-white" href="https://tracuutuvi.com/"><img
-                            src="uploads/images/logo.png" alt=""></a>
+                    <a class="navbar-brand text-white" href="{{ route('home') }}"><img
+                            src="{{ asset('/images/logo/logo.png') }}" alt=""></a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -24,42 +24,16 @@
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="account"
                                     role="button" aria-haspopup="true" aria-expanded="false"><i
-                                        class="fas fa-search"></i> Tra cứu</a>
-                                <div class="dropdown-menu" style="min-width: 250px;right:0!important;left:auto;">
-                                    <div style="position: relative">
-                                        <a class="dropdown-item" href="https://xem.tracuutuvi.com/"><i
-                                                class="fas fa-tint"></i> Lập lá số tử vi</a>
-                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com"
-                                            target="_blank"><i class="fas fa-tint"></i> Tra cứu thần số học</a>
-                                        <a class="dropdown-item"
-                                            href="https://xem.tracuuthansohoc.com/than-so-hoc-cho-con"
-                                            target="_blank"><i class="fas fa-child"></i> Thần số học cho con</a>
-                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/disc"
-                                            target="_blank"><i class="fas fa-pen-square"></i> Trắc nghiệm DISC</a>
-                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/mbti"
-                                            target="_blank"><i class="fas fa-pen-square"></i> Trắc nghiệm MBTI</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="account"
-                                    role="button" aria-haspopup="true" aria-expanded="false"><i
                                         class="fas fa-shopping-bag"></i> Mua Vip</a>
                                 <div class="dropdown-menu" style="min-width: 250px;right:0!important;left:auto;">
                                     <div style="position: relative">
-                                        <a class="dropdown-item" href="purchase"><i class="fas fa-tint"></i> Mua Vip
+                                        <a class="dropdown-item" href="{{ route('purchase_kid') }}"><i class="fas fa-tint"></i> Mua Vip
                                             tử vi</a>
-                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/purchase"
-                                            target="_blank"><i class="fas fa-tint"></i> Mua Vip thần số học</a>
-                                        <a class="dropdown-item" href="https://xem.tracuuthansohoc.com/purchase_kid"
-                                            target="_blank"><i class="fas fa-child"></i> Mua vip thần số học cho
-                                            con</a>
                                     </div>
                                 </div>
                             </li>
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <span class="nav-link"><a href="signup" class="text-white">Đăng ký</a> / <a
-                                        href="login" class="text-white">Đăng nhập</a></span>
+                                <span class="nav-link"><a href="{{ route('register') }}" class="text-white">Đăng ký</a> / <a href="{{ route('login') }}" class="text-white">Đăng nhập</a></span>
                             </li>
                         </ul>
                     </div>
@@ -72,7 +46,6 @@
 <section class="container" unselectable="on"
     style="display: table;min-height: calc(100vh - 100px);padding:1px 10px;">
     <div id="TUVI_CONTAINER">
-
         <div class="initial-carousel-container content-container carousel-container"
             style="margin: 15px auto 15px!important;">
             <div class="signs-carousel">
@@ -93,7 +66,7 @@
             <b>CHÚ THÍCH:</b><br>
             - Năm xem (âm lịch) và tháng xem (âm lịch) bạn chọn để an thêm các sao lưu vào trong lá số của bạn và
             tính tiểu hạn!<br>
-            - Xem lại các luận giải lá số bạn đã tra cứu VIP tại <a href="account?a=history&amp;type=9" style="color:#007bff!important;">Lịch sử tra cứu</a>
+            - Xem lại các luận giải lá số bạn đã tra cứu VIP tại <a href="{{ route('history') }}" style="color:#007bff!important;">Lịch sử tra cứu</a>
         </div>
     </div>
 </section>

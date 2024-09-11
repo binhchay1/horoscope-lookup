@@ -4,7 +4,7 @@
 
             <div class="col-sm-12 col-lg-4 footer-widget">
                 <div class="about-widget" style="display: inline-block;line-height: inherit;">
-                    <img src="uploads/images/logo.png" alt="">
+                    <img src="{{ asset('/images/logo/logo.png') }}" alt="">
                 </div>
             </div>
 
@@ -39,14 +39,14 @@
                                 style="margin-left:5px;padding:1px 2px;vertical-align: middle;font-size: 12px;"
                                 data-clipboard-text="0962984269">Copy</button><br>
                             <a href="https://zalo.me/0962984269" target="_blank"><img
-                                    src="uploads/images/icon-zalo-min.png"
+                                    src="{{ asset('/images/icon/icon-zalo-min.png') }}"
                                     style="height:30px;margin-left:10px;margin-right:10px;"></a>
                             <a href="https://wa.me/+84962984269" target="_blank"><img
-                                    src="uploads/images/icon-whatsapp-min.png"
+                                    src="{{ asset('/images/icon/icon-whatsapp-min.png') }}"
                                     style="height:30px;margin-right:10px;margin-left:10px;"></a>
-                            <a href="sms:0962984269"><img src="uploads/images/icon-sms-min.png"
+                            <a href="sms:0962984269"><img src="{{ asset('/images/icon/icon-sms-min.png') }}"
                                     style="height:25px;margin-right:10px;"></a>
-                            <a href="tel:0962984269"><img src="uploads/images/icon-call-min.png"
+                            <a href="tel:0962984269"><img src="{{ asset('/images/icon/icon-call-min.png') }}"
                                     style="height:25px;margin-right:10px;"></a>
                         </p>
                     </li>
