@@ -27,7 +27,7 @@
                                         class="fas fa-shopping-bag"></i> Mua Vip</a>
                                 <div class="dropdown-menu" style="min-width: 250px;right:0!important;left:auto;">
                                     <div style="position: relative">
-                                        <a class="dropdown-item" href="{{ route('purchase_kid') }}"><i class="fas fa-tint"></i> Mua Vip
+                                        <a class="dropdown-item" href="{{ route('purchase') }}"><i class="fas fa-tint"></i> Mua Vip
                                             tử vi</a>
                                     </div>
                                 </div>

@@ -1,0 +1,353 @@
+<html lang="vi"><!--begin::Head-->
+
+<head></head>
+<link rel="shortcut icon" type="image/png" href="uploads/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="uploads/favicon/favicon-16x16.png">
+<link rel="manifest" href="uploads/favicon/site.webmanifest">
+<meta charset="utf-8">
+<title>Đăng ký tài khoản</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--begin::Page Custom Styles(used by this page)-->
+<link href="uploads/login/css/login.css" rel="stylesheet" type="text/css">
+<!--end::Page Custom Styles-->
+<!--begin::Global Theme Styles(used by all pages)-->
+<link href="uploads/login/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+<link href="uploads/login/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css">
+<link href="uploads/login/css/style.bundle.css" rel="stylesheet" type="text/css">
+<link href="uploads/login/css/flags.css" rel="stylesheet" type="text/css">
+<!--end::Global Theme Styles-->
+<style>
+    @keyframes fa-spinner {
+        0% {
+            transform: rotate(0deg)
+        }
+
+        to {
+            transform: rotate(1turn)
+        }
+    }
+
+    .fa-spinner {
+        animation: fa-spinner 0.5s linear infinite;
+    }
+
+    .blinker {
+        animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCZNPHQ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Login-->
+        <div class="login login-3 login-signup-on d-flex flex-row-fluid" id="kt_login">
+            <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
+                style="background-image: url('uploads/images/bg.jpg');">
+                <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
+                    <!--begin::Login Header-->
+                    <div class="d-flex flex-center mb-5">
+                        <a href="/" class="text-white font-size-h2">
+                            <img src="uploads/images/logo_don-min.png" class="max-h-25px" alt=""> Tra cứu tử vi
+                        </a>
+                    </div>
+                    <!--end::Login Header-->
+
+                    <!--begin::Login Sign in form-->
+                    <div class="login-signin">
+                        <div class="mb-5">
+                            <h3>Đăng nhập</h3>
+                            <p>Tài khoản cùng hệ thống tracuuthansohoc.com</p>
+                        </div>
+                        <form class="form" id="kt_login_signin_form" action="login" method="post">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <div style="width: 100%; margin-left: 8px;position: relative;">
+                                            <div class="select-flag">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span class="tf" code="vn">+84</span>
+                                                <div class="dropdown-flag hidden">
+                                                    <input class="hidden phone_code" type="hidden" name="phone_code"
+                                                        value="+84" autocomplete="off" required="">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input
+                                            class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                            type="text" placeholder="Số điện thoại đăng nhập" name="username" value=""
+                                            autocomplete="off" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                    type="password" placeholder="Mật khẩu" name="password" required="">
+                            </div>
+                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
+                                <div class="checkbox-inline">
+                                    <label class="checkbox checkbox-outline checkbox-white text-white m-0">
+                                        <input type="checkbox" name="remember">
+                                        <span></span>
+                                        Ghi nhớ đăng nhập
+                                    </label>
+                                </div>
+                                <a href="javascript:" id="kt_login_forgot" class="text-white font-weight-bold">Quên mật
+                                    khẩu?</a>
+                            </div>
+                            <div class="form-group text-center mt-10">
+                                <button id="kt_login_signin_submit" type="submit"
+                                    class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Đăng
+                                    nhập</button>
+                            </div>
+                        </form>
+                        <div class="mt-10">
+                            <span class="opacity-90 mr-4">
+                                Bạn chưa có tài khoản?
+                            </span>
+                            <a href="javascript:" id="kt_login_signup" class="text-white font-weight-bold">Đăng ký
+                                ngay</a>
+                        </div>
+                    </div>
+                    <!--end::Login Sign in form-->
+
+                    <!--begin::Login Sign up form-->
+                    <div class="login-signup">
+                        <div class="mb-5">
+                            <h3>Đăng ký tài khoản mới</h3>
+                            <p>Tài khoản cùng hệ thống tracuuthansohoc.com</p>
+                        </div>
+                        <form class="form text-center" id="kt_login_signup_form" action="signup" method="post">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <div style="width: 100%; margin-left: 8px;position: relative;">
+                                            <div class="select-flag">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span class="tf" code="vn">+84</span>
+                                                <div class="dropdown-flag hidden">
+                                                    <input class="hidden phone_code" type="hidden" name="phone_code"
+                                                        value="+84" autocomplete="off" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input
+                                            class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8"
+                                            type="text" placeholder="Số điện thoại nhận mã kích hoạt" name="user_phone"
+                                            value="" autocomplete="off" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8"
+                                    type="text" placeholder="Họ và tên" name="user_fullname" value="" required="">
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8"
+                                    type="password" placeholder="Mật khẩu mới" name="user_pass" required="">
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8"
+                                    type="password" placeholder="Nhập lại mật khẩu mới" name="cpassword" required="">
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8"
+                                    type="email" placeholder="Email nếu có" name="email" value="">
+                            </div>
+                            <div class="form-group text-left px-8">
+                                <div class="checkbox-inline">
+                                    <label class="checkbox checkbox-outline checkbox-white text-white m-0">
+                                        <input type="checkbox" name="agree" id="agreeTerm">
+                                        <span></span>
+                                        Tôi ĐỒNG Ý với <a href="https://tracuutuvi.com/chinh-sach-su-dung/"
+                                            target="_blank" class="text-white font-weight-bold ml-1">điều khoản sử
+                                            dụng</a>.
+                                    </label>
+                                </div>
+                                <div class="form-text text-white text-left">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button id="kt_login_signup_submit" type="submit"
+                                    class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Đăng
+                                    ký</button>
+                            </div>
+                        </form>
+                        <div class="mt-10">
+                            <span class="opacity-90 mr-4">
+                                Bạn đã có tài khoản?
+                            </span>
+                            <a href="javascript:" id="kt_login_signin" class="text-white font-weight-bold">Đăng nhập
+                                ngay</a>
+                        </div>
+                    </div>
+                    <!--end::Login Sign up form-->
+
+                    <!--begin::Login forgot password form-->
+                    <div class="login-forgot">
+                        <div class="mb-5">
+                            <h3>Quên mật khẩu?</h3>
+                            <p class="opacity-60">Nhập số điện thoại của bạn</p>
+                        </div>
+                        <form class="form" id="kt_login_forgot_form" action="forgot" method="post"
+                            style="min-height: 350px;">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <div style="width: 100%; margin-left: 8px;position: relative;">
+                                            <div class="select-flag">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span class="tf" code="vn">+84</span>
+                                                <div class="dropdown-flag hidden">
+                                                    <input class="hidden phone_code" type="hidden" name="phone_code"
+                                                        value="+84" autocomplete="off" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input
+                                            class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8"
+                                            type="text" placeholder="Số điện thoại của bạn" name="phone"
+                                            autocomplete="off" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button id="kt_login_forgot_submit" type="submit"
+                                    class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Gửi
+                                </button>
+                                <button id="kt_login_forgot_cancel"
+                                    class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Hủy</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--end::Login forgot password form-->
+                </div>
+            </div>
+        </div>
+        <!--end::Login-->
+    </div>
+    <!--end::Main-->
+
+    <script src="uploads/js/jQuery3-1-1.min.js"></script>
+    <script>
+        $('.select-flag').click(function () {
+            var ddf = $(this).find('.dropdown-flag');
+            if (ddf.hasClass('hidden')) {
+                ddf.removeClass('hidden');
+            } else {
+                ddf.addClass('hidden');
+            }
+        });
+        $('.dropdown-flag').find('li').click(function (e) {
+            e.stopPropagation();
+            var ul = $(this).parent();
+            var ddf = $(this).parent().parent();
+            ul.find('li').first().remove();
+            var phone_code = $(this).find('em').text();
+            var country_code = $(this).find('.flag').attr('code');
+            ddf.parent().find('.tf').text(phone_code).attr('code', country_code);
+            ddf.find('.phone_code').val(phone_code);
+            $(this).clone().addClass('selected').prependTo(ul);
+            ddf.addClass('hidden');
+        });
+        var KTAppSettings = {
+            "breakpoints": {
+                "sm": 576,
+                "md": 768,
+                "lg": 992,
+                "xl": 1200,
+                "xxl": 1400
+            },
+            "colors": {
+                "theme": {
+                    "base": {
+                        "white": "#ffffff",
+                        "primary": "#3699FF",
+                        "secondary": "#E5EAEE",
+                        "success": "#1BC5BD",
+                        "info": "#8950FC",
+                        "warning": "#FFA800",
+                        "danger": "#F64E60",
+                        "light": "#E4E6EF",
+                        "dark": "#181C32"
+                    },
+                    "light": {
+                        "white": "#ffffff",
+                        "primary": "#E1F0FF",
+                        "secondary": "#EBEDF3",
+                        "success": "#C9F7F5",
+                        "info": "#EEE5FF",
+                        "warning": "#FFF4DE",
+                        "danger": "#FFE2E5",
+                        "light": "#F3F6F9",
+                        "dark": "#D6D6E0"
+                    },
+                    "inverse": {
+                        "white": "#ffffff",
+                        "primary": "#ffffff",
+                        "secondary": "#3F4254",
+                        "success": "#ffffff",
+                        "info": "#ffffff",
+                        "warning": "#ffffff",
+                        "danger": "#ffffff",
+                        "light": "#464E5F",
+                        "dark": "#ffffff"
+                    }
+                },
+                "gray": {
+                    "gray-100": "#F3F6F9",
+                    "gray-200": "#EBEDF3",
+                    "gray-300": "#E4E6EF",
+                    "gray-400": "#D1D3E0",
+                    "gray-500": "#B5B5C3",
+                    "gray-600": "#7E8299",
+                    "gray-700": "#5E6278",
+                    "gray-800": "#3F4254",
+                    "gray-900": "#181C32"
+                }
+            }
+        };
+    </script>
+    <!--end::Global Config-->
+
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="uploads/login/plugins/global/plugins.bundle.js"></script>
+    <script src="uploads/login/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="uploads/login/js/scripts.bundle.js"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="uploads/login/js/login-general-v2.js"></script>
+    <!--end::Page Scripts-->
+
+
+    <svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1002"></defs>
+        <polyline id="SvgjsPolyline1003" points="0,0"></polyline>
+        <path id="SvgjsPath1004" d="M0 0 "></path>
+    </svg>
+</body><!--end::Body-->
+
+</html>

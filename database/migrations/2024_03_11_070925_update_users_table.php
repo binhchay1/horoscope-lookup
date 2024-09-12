@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::table('users', function($table) {
             $table->string('role');
-          
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
