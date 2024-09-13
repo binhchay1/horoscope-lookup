@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Page\HomeController;
+use App\Http\Controllers\Page\ErrorController;
 use Illuminate\Support\Facades\Route;
 
 /*
