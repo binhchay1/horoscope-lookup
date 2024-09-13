@@ -1,92 +1,63 @@
 @extends('layouts.page')
 
 @section('title')
-<title>{{ __('Đăng ký') }} | Kattech PC</title>
-<script async src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+<title>Đăng ký</title>
 @endsection
-
-@section('description', __('Đăng ký để trải nghiệm nhiều tính năng khác của chúng tôi'))
-@section('keywords', 'register, kattechpc, kattech')
-@section('breadcrumb', __('Đăng ký'))
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/page/auth.css') }}" />
 @endsection
 
 @section('content')
-<div class="limiter form-auth">
-    <div class="container-login100">
-        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-            <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('register') }}">
-                @csrf
-                <span class="login100-form-title p-b-53">
-                    <h1>{{ __('ĐĂNG KÍ') }}</h1>
-                </span>
-
-                @if(isset($errors))
-                @foreach ($errors->all() as $error)
-                <div style="color: red; margin: 10px">{{ $error }}</div>
-                @endforeach
-                @endif
-
-                <div class="p-t-31 p-b-9">
-                    <span class="txt1">
-                        {{ __('Tên') }}
-                    </span>
+<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid">
+    <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
+        <div class="d-flex flex-center mb-5">
+            <a href="/" class="text-white font-size-h2">
+                <img src="uploads/images/logo_don-min.png" class="max-h-25px" alt=""> Tra cứu tử vi
+            </a>
+        </div>
+        <div class="login-signup">
+            <div class="mb-5">
+                <h3>Đăng ký tài khoản mới</h3>
+                <p>Tài khoản cùng hệ thống tracuuthansohoc.com</p>
+            </div>
+            <form class="form text-center" id="kt_login_signup_form" action="signup" method="post">
+                <div class="form-group">
+                    <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8" type="text" placeholder="Họ và tên" name="name" value="" required="">
                 </div>
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="{{ __('Nhập tên') }}">
+                <div class="form-group">
+                    <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8" type="text" placeholder="Tài khoản" name="username" value="" required="">
                 </div>
-
-                <div class="p-t-31 p-b-9">
-                    <span class="txt1">
-                        Email
-                    </span>
+                <div class="form-group">
+                    <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8" type="password" placeholder="Mật khẩu" name="password" required="">
                 </div>
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="{{ __('Nhập email của bạn') }}">
+                <div class="form-group">
+                    <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8" type="password" placeholder="Nhập lại mật khẩu" name="confirm_password" required="">
                 </div>
-
-                <div class="p-t-13 p-b-9">
-                    <span class="txt1">
-                        {{ __('Mật khẩu') }}
-                    </span>
+                <div class="form-group">
+                    <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8" type="email" placeholder="Email nếu có" name="email" value="">
                 </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="password" id="password" name="password" required autocomplete="current-password" placeholder="{{ __('Nhập mật khẩu của bạn') }}">
+                <div class="form-group text-left px-8">
+                    <div class="checkbox-inline">
+                        <label class="checkbox checkbox-outline checkbox-white text-white m-0">
+                            <input type="checkbox" name="agree" id="agreeTerm">
+                            <span></span>
+                            Tôi ĐỒNG Ý với <a href="{{ route('policy') }}" target="_blank" class="text-white font-weight-bold ml-1">điều khoản sử dụng</a>.
+                        </label>
+                    </div>
+                    <div class="form-text text-white text-left">
+                    </div>
                 </div>
-
-                <div class="p-t-13 p-b-9">
-                    <span class="txt1">
-                        {{ __('Xác nhận mật khẩu') }}
-                    </span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Nhập xác nhận mật khẩu') }}">
-                </div>
-
-                <div>
-                    <div name="g-recaptcha" class="g-recaptcha mt-4" data-sitekey="{{ config('services.recaptcha.key') }}"></div>
-                </div>
-
-                <div class="container-login100-form-btn mt-15">
-                    <button class="login100-form-btn">
-                        {{ __('ĐĂNG KÍ') }}
-                    </button>
-                </div>
-
-                <div class="w-full text-center p-t-55 mt-15">
-                    <span class="txt2">
-                        {{ __('Bạn đã có tài khoản') }}
-                    </span>
-
-                    <a href="{{ route('login') }}" class="txt2-register bo1">
-                        {{ __('Đăng nhập ngay') }}
-                    </a>
+                <div class="form-group">
+                    <button id="kt_login_signup_submit" type="submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Đăng ký</button>
                 </div>
             </form>
+            <div class="mt-10">
+                <span class="opacity-90 mr-4">
+                    Bạn đã có tài khoản?
+                </span>
+                <a href="javascript:" id="kt_login_signin" class="text-white font-weight-bold">Đăng nhập ngay</a>
+            </div>
         </div>
     </div>
 </div>

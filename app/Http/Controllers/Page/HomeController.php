@@ -6,7 +6,6 @@ use App\Driver\TuviDriver;
 use App\Enums\Utility;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Cache;
 
 class HomeController extends Controller
 {
@@ -24,6 +23,11 @@ class HomeController extends Controller
     public function viewHome()
     {
         return view('page.homepage');
+    }
+
+    public function viewPolicy()
+    {
+        return view('page.policy');
     }
 
     public function processLookup(Request $request)

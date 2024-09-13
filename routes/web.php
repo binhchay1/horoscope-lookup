@@ -24,6 +24,10 @@ Route::get('/429', [ErrorController::class, 'view429'])->name('error.429');
 Route::get('/500', [ErrorController::class, 'view500'])->name('error.500');
 Route::get('/503', [ErrorController::class, 'view503'])->name('error.503');
 Route::get('/', [HomeController::class, 'viewHome'])->name('home');
+Route::get('/purchase', [HomeController::class, 'viewPurchase'])->name('purchase');
+Route::get('/lich-su', [HomeController::class, 'viewHistory'])->name('history');
+Route::post('/lookup', [HomeController::class, 'processLookup'])->name('lookup');
+Route::post('/chinh-sach-su-dung', [HomeController::class, 'viewPolicy'])->name('policy');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
     Route::get('/dashboard', [AdminController::class, 'viewDashBoard'])->name('admin.dashboard');

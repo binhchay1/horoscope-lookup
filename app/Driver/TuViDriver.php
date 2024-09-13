@@ -4,7 +4,8 @@ namespace App\Driver;
 
 use App\Models\Cung;
 use App\Driver\DuongLichAmLichUtility;
-use App\Driver\TuVi;
+use App\Enums\TuVi;
+use App\Models\User;
 
 class TuviDriver
 {

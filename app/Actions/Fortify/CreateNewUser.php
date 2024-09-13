@@ -2,16 +2,12 @@
 
 namespace App\Actions\Fortify;
 
-use App\Mail\WelcomeEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
-use Laravel\Jetstream\Jetstream;
 use App\Enums\Role;
-use App\Jobs\SendMailByGoogle;
-use App\Rules\ReCaptcha;
 
 class CreateNewUser implements CreatesNewUsers
 {

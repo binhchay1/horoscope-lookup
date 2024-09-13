@@ -15,10 +15,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Lập lá số tử vi - Tra cứu tử vi</title>
+    @yield('title')
 
     <link rel="shortcut icon" href="{{ asset('/images/logo/favicon.ico') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/page/util.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/page/util.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('/plugins/font-awesome/font-awesome-all.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/page/style.min.css') }}">

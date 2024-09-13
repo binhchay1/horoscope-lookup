@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('title')
-<title>{{ __('Trang chủ') }} | env('APP_NAME', 'TUVI')</title>
+<title>Trang chủ</title>
 @endsection
 
 @section('content')
@@ -37,7 +37,6 @@
                             </li>
                         </ul>
                     </div>
-
                 </nav>
             </div>
         </div>
