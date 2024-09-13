@@ -88,7 +88,7 @@ class TuviDriver
         $this->user->setCan(DuongLichAmLichUtility::defineCanOfYear($this->user->getYearOfBirth()));
         $this->user->setChi(DuongLichAmLichUtility::defineChi($this->user->getYearOfBirth()));
         $this->user->setHourOfBirth(DuongLichAmLichUtility::defineLunarHour($hourOfBirth));
-        $this->user->setTuoiAmHayDuong(DuongLichAmLichUtility::tuoiAmHayDuong($this->user->getCan()->toString()));
+        $this->user->setTuoiAmHayDuong(DuongLichAmLichUtility::tuoiAmHayDuong($this->user->getCan()));
         $menhInt = $this->canValues[$this->user->getCan()] + $this->chiValues[$this->user->getChi()];
         if ($menhInt > 5) {
             $menhInt -= 5;

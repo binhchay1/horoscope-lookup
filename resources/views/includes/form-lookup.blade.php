@@ -1,5 +1,5 @@
 <form action="{{ route('lookup') }}" method="post" class="text-white">
-    <input type="hidden" name="from" value="">
+    @csrf
     <div class="form-row">
         <div class="col-8">
             <p class="m-b-5">Họ tên khai sinh</p>

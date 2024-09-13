@@ -32,13 +32,13 @@ class HomeController extends Controller
 
     public function processLookup(Request $request)
     {
-        dd($request);
-        $fullname = $request->get('fullname');
-        $yearOfBirth = $request->get('yearOfBirth');
-        $monthOfBirth = $request->get('monthOfBirth');
-        $dayOfBirth = $request->get('dayOfBirth');
-        $hourOfBirth = $request->get('hourOfBirth');
-        $gender = $this->get('gender');
+        // dd($request);
+        $fullname = $request->get('full_name');
+        $yearOfBirth = $request->get('year');
+        $monthOfBirth = $request->get('month');
+        $dayOfBirth = $request->get('day');
+        $hourOfBirth = $request->get('hour');
+        $gender = $request->get('gender');
 
         $this->tuViDriver->buildUser($fullname, $yearOfBirth, $monthOfBirth, $dayOfBirth, $hourOfBirth, $gender);
         $this->tuViDriver->setCungMenhAndThan();
