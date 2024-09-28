@@ -8,16 +8,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use App\Enums\Role;
-
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
-    /**
-     * Create a newly registered user.
-     *
-     * @param  array<string, string>  $input
-     */
     public function create(array $input): User
     {
         Validator::make($input, [
@@ -46,6 +40,7 @@ class CreateNewUser implements CreatesNewUsers
             $user =  User::create([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'username' => $input['username'],
                 'password' => Hash::make($input['password']),
                 'role' => Role::USER
             ]);

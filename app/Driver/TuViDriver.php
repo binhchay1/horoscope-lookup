@@ -5,16 +5,13 @@ namespace App\Driver;
 use App\Models\Cung;
 use App\Driver\DuongLichAmLichUtility;
 use App\Enums\TuVi;
-use App\Models\User;
 
 class TuviDriver
 {
-
     private $cungs = [];
     private $canValues = [];
     private $chiValues = [];
     private $menhValues = [];
-    private $user;
     private $congiaps;
 
     public function __construct()
@@ -73,8 +70,6 @@ class TuviDriver
             4 => TuVi::THO,
             5 => TuVi::MOC,
         ];
-
-        $this->user = new User();
     }
 
     public function buildUser($fullname, $yearOfBirth, $monthOfBirth, $dayOfBirth, $hourOfBirth, $gender)
@@ -94,11 +89,6 @@ class TuviDriver
             $menhInt -= 5;
         }
         $this->user->setMenh($this->menhValues[$menhInt]->toString());
-    }
-
-    public function getUser()
-    {
-        return $this->user;
     }
 
     public function setCungMenhAndThan()
