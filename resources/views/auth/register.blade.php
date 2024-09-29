@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid">
+<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid justify-content-center">
     <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
         <div class="d-flex flex-center mb-5">
             <a href="/" class="text-white font-size-h2">

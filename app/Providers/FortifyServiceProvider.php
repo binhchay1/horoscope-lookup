@@ -40,24 +40,15 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::loginView(function () {
-            $key = 'menu_homepage';
-            $listCategory = Cache::store('redis')->get($key);
-
-            return view('auth.login', compact('listCategory'));
+            return view('auth.login');
         });
 
         Fortify::registerView(function () {
-            $key = 'menu_homepage';
-            $listCategory = Cache::store('redis')->get($key);
-
-            return view('auth.register', compact('listCategory'));
+            return view('auth.register');
         });
 
         Fortify::requestPasswordResetLinkView(function () {
-            $key = 'menu_homepage';
-            $listCategory = Cache::store('redis')->get($key);
-
-            return view('auth.forgot-password', compact('listCategory'));
+            return view('auth.forgot-password');
         });
 
         RateLimiter::for('login', function (Request $request) {

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid">
+<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid justify-content-center">
     <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
         <div class="d-flex flex-center mb-5">
             <a href="/" class="text-white font-size-h2">
@@ -24,17 +24,6 @@
             <form class="form" id="kt_login_signin_form" action="login" method="post">
                 <div class="form-group">
                     <div class="form-row">
-                        <div class="col-4">
-                            <div style="width: 100%; margin-left: 8px;position: relative;">
-                                <div class="select-flag">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    <span class="tf" code="vn">+84</span>
-                                    <div class="dropdown-flag hidden">
-                                        <input class="hidden phone_code" type="hidden" name="phone_code" value="+84" autocomplete="off" required="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-8">
                             <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5" type="text" placeholder="Số điện thoại đăng nhập" name="username" value="" autocomplete="off" required="">
                         </div>

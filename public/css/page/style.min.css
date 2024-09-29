@@ -2326,3 +2326,8 @@ section#report-details h1 strong {
 .pointer {
     cursor: pointer;
 }
+
+.content-page {
+    display: flex;
+    justify-content: center;
+}

@@ -36,8 +36,6 @@
         </div>
     </div>
 
-    <div class="alert-box hide" id="alertBox"></div>
-    <div class="alert-success-box" id="alertSuccessBox">Thành công</div>
     <script src="{{ asset('/plugins/jquery/jquery-3.4.1.min.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="{{ asset('/js/page/viewv1.min.js') }}"></script>
