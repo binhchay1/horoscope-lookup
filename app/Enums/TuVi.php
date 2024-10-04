@@ -60,26 +60,4 @@ class TuVi
     const TU_TUC = "Tử tức";
     const PHU_THE = "Phu thê";
     const HUYNH_DE = "Huynh đệ";
-
-    private $name;
-
-    private function __construct($name)
-    {
-        $this->name = $name;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
-    }
-
-    public function equalsName($otherName)
-    {
-        return $this->name === $otherName;
-    }
-
-    public static function getConstant($constantName)
-    {
-        return new self(constant("self::" . $constantName));
-    }
 }

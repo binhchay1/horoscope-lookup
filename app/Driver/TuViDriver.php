@@ -2,7 +2,6 @@
 
 namespace App\Driver;
 
-use App\Models\Cung;
 use App\Driver\DuongLichAmLichUtility;
 use App\Enums\TuVi;
 
@@ -30,10 +29,6 @@ class TuviDriver
             TuVi::TUAT,
             TuVi::HOI
         ];
-
-        foreach ($this->congiaps as $tuvi) {
-            $this->cungs[$tuvi] = new Cung();
-        }
 
         $this->canValues = [
             TuVi::GIAP => 1,
@@ -154,14 +149,14 @@ class TuviDriver
     {
         $this->cungs[$position]->setName(TuVi::MENH);
 
-        return "Cung mệnh: " . $position;
+        return $position;
     }
 
     private function setCungThan($position)
     {
         $this->cungs[$position]->setThanMenhDongCung(true);
 
-        return "Cung thân: " . $position;
+        return $position;
     }
 
     private function isGioSinhMatched($index)
@@ -212,7 +207,7 @@ class TuviDriver
         $indexOfCungPhuMau = $this->findIndexByClockWise($positionOfCungMenh, 1);
         $this->cungs[$this->congiaps[$indexOfCungPhuMau]]->setName(TuVi::PHU_MAU);
 
-        return "Cung phụ mẫu: " . $this->congiaps[$indexOfCungPhuMau];
+        return $this->congiaps[$indexOfCungPhuMau];
     }
 
     public function setCungPhucDuc()
@@ -224,7 +219,7 @@ class TuviDriver
         $indexOfCungPhucDuc = $this->findIndexByClockWise($positionOfCungPhuMau, 1);
         $this->cungs[$this->congiaps[$indexOfCungPhucDuc]]->setName(TuVi::PHUC_DUC);
 
-        return "Cung phúc đức: " . $this->congiaps[$indexOfCungPhucDuc];
+        return $this->congiaps[$indexOfCungPhucDuc];
     }
 
     public function setCungDienTrach()
@@ -236,7 +231,7 @@ class TuviDriver
         $indexOfCungDienTrach = $this->findIndexByClockWise($positionOfCungPhucDuc, 1);
         $this->cungs[$this->congiaps[$indexOfCungDienTrach]]->setName(TuVi::DIEN_TRACH);
 
-        return "Cung điền trạch: " . $this->congiaps[$indexOfCungDienTrach];
+        return $this->congiaps[$indexOfCungDienTrach];
     }
 
     public function setCungQuanLoc()
@@ -248,7 +243,7 @@ class TuviDriver
         $indexOfCungQuanLoc = $this->findIndexByClockWise($positionOfCungDienTrach, 1);
         $this->cungs[$this->congiaps[$indexOfCungQuanLoc]]->setName(TuVi::QUAN_LOC);
 
-        return "Cung quan lộc: " . $this->congiaps[$indexOfCungQuanLoc];
+        return $this->congiaps[$indexOfCungQuanLoc];
     }
 
     public function setCungNoBoc()
@@ -260,7 +255,7 @@ class TuviDriver
         $indexOfCungNoBoc = $this->findIndexByClockWise($positionOfCungQuanLoc, 1);
         $this->cungs[$this->congiaps[$indexOfCungNoBoc]]->setName(TuVi::NO_BOC);
 
-        return "Cung nô bộc: " . $this->congiaps[$indexOfCungNoBoc];
+        return $this->congiaps[$indexOfCungNoBoc];
     }
 
     public function setCungThienDi()
@@ -272,7 +267,7 @@ class TuviDriver
         $indexOfCungThienDi = $this->findIndexByClockWise($positionOfCungNoBoc, 1);
         $this->cungs[$this->congiaps[$indexOfCungThienDi]]->setName(TuVi::THIEN_DI);
 
-        return "Cung thiên di: " . $this->congiaps[$indexOfCungThienDi];
+        return $this->congiaps[$indexOfCungThienDi];
     }
 
     public function setCungTatAch()
@@ -284,7 +279,7 @@ class TuviDriver
         $indexOfCungTatAch = $this->findIndexByClockWise($positionOfCungThienDi, 1);
         $this->cungs[$this->congiaps[$indexOfCungTatAch]]->setName(TuVi::TAT_ACH);
 
-        return "Cung tật ách: " . $this->congiaps[$indexOfCungTatAch];
+        return $this->congiaps[$indexOfCungTatAch];
     }
 
     public function setCungTaibach()
@@ -296,7 +291,7 @@ class TuviDriver
         $indexOfCungTaiBach = $this->findIndexByClockWise($positionOfCungTatAch, 1);
         $this->cungs[$this->congiaps[$indexOfCungTaiBach]]->setName(TuVi::TAI_BACH);
 
-        return TuVi::TAI_BACH . ": " . $this->congiaps[$indexOfCungTaiBach];
+        return $this->congiaps[$indexOfCungTaiBach];
     }
 
     public function setCungTuTuc()
@@ -308,7 +303,7 @@ class TuviDriver
         $indexOfCungTuTuc = $this->findIndexByClockWise($positionOfCungTaiBach, 1);
         $this->cungs[$this->congiaps[$indexOfCungTuTuc]]->setName(TuVi::TU_TUC);
 
-        return TuVi::TU_TUC . ": " . $this->congiaps[$indexOfCungTuTuc];
+        return $this->congiaps[$indexOfCungTuTuc];
     }
 
     public function setCungPhuThe()
@@ -320,7 +315,7 @@ class TuviDriver
         $indexOfCungPhuThe = $this->findIndexByClockWise($positionOfCungTuTuc, 1);
         $this->cungs[$this->congiaps[$indexOfCungPhuThe]]->setName(TuVi::PHU_THE);
 
-        return TuVi::PHU_THE . ": " . $this->congiaps[$indexOfCungPhuThe];
+        return $this->congiaps[$indexOfCungPhuThe];
     }
 
     public function setCungHuynhDe()
@@ -332,6 +327,6 @@ class TuviDriver
         $indexOfCungHuynhDe = $this->findIndexByClockWise($positionOfCungPhuThe, 1);
         $this->cungs[$this->congiaps[$indexOfCungHuynhDe]]->setName(TuVi::HUYNH_DE);
 
-        return TuVi::HUYNH_DE . ": " . $this->congiaps[$indexOfCungHuynhDe];
+        return $this->congiaps[$indexOfCungHuynhDe];
     }
 }
