@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function processLookup(Request $request)
     {
-        // dd($request);
+        dd($request);
         $fullname = $request->get('full_name');
         $yearOfBirth = $request->get('year');
         $monthOfBirth = $request->get('month');
