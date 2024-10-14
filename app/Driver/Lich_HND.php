@@ -190,7 +190,7 @@ class Lich_HND
             $lunarYear -= 1;
         }
 
-        return [lunarDay, lunarMonth, lunarYear, lunarLeap];
+        return [$lunarDay, $lunarMonth, $lunarYear, $lunarLeap];
     }
 
 
