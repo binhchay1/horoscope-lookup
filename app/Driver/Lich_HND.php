@@ -4,7 +4,7 @@ namespace App\Driver;
 
 class Lich_HND
 {
-    public function jdFromDate($dd, $mm, $yy)
+    public static function jdFromDate($dd, $mm, $yy)
     {
         $a = int((14 - $mm) / 12.);
         $y = $yy + 4800 - $a;
@@ -18,7 +18,7 @@ class Lich_HND
         return $jd;
     }
 
-    public function jdToDate($jd)
+    public static function jdToDate($jd)
     {
         if ($jd > 2299160) {
             $a = $jd + 32044;
@@ -41,7 +41,7 @@ class Lich_HND
         return $result;
     }
 
-    public function NewMoon($k)
+    public static function NewMoon($k)
     {
         $T = $k / 1236.85;
         $T2 = $T * $T;
@@ -70,7 +70,7 @@ class Lich_HND
         return $JdNew;
     }
 
-    public function SunLongitude($jdn)
+    public static function SunLongitude($jdn)
     {
         $T = ($jdn - 2451545.0) / 36525.;
         $T2 = $T * $T;
@@ -86,12 +86,12 @@ class Lich_HND
         return $L;
     }
 
-    public function getSunLongitude_OLD($dayNumber, $timeZone)
+    public static function getSunLongitude_OLD($dayNumber, $timeZone)
     {
-        return int($this->SunLongitude($dayNumber - 0.5 - $timeZone / 24.) / pi() * 6);
+        return int(Lich_HND::SunLongitude($dayNumber - 0.5 - $timeZone / 24.) / pi() * 6);
     }
 
-    public function getSunLongitude($jdn, $timeZone)
+    public static function getSunLongitude($jdn, $timeZone)
     {
         $T = ($jdn - 2451545.5 - $timeZone / 24.) / 36525.;
         $T2 = $T ** 2;
@@ -110,33 +110,32 @@ class Lich_HND
 
     public function getNewMoonDay($k, $timeZone)
     {
-        return int($this->NewMoon($k) + 0.5 + $timeZone / 24.);
+        return int(Lich_HND::NewMoon($k) + 0.5 + $timeZone / 24.);
     }
 
     public function getLunarMonth11($yy, $timeZone)
     {
-        $off = $this->jdFromDate(31, 12, $yy) - 2415021.;
+        $off = Lich_HND::jdFromDate(31, 12, $yy) - 2415021.;
         $k = int($off / 29.530588853);
-        $nm = $this->getNewMoonDay($k, $timeZone);
-        $sunLong = $this->getSunLongitude($nm, $timeZone);
+        $nm = Lich_HND::getNewMoonDay($k, $timeZone);
+        $sunLong = Lich_HND::getSunLongitude($nm, $timeZone);
         if ($sunLong >= 9) {
-            $nm = $this->getNewMoonDay($k - 1, $timeZone);
+            $nm = Lich_HND::getNewMoonDay($k - 1, $timeZone);
         }
 
         return $nm;
     }
-
 
     public function getLeapMonthOffset($a11, $timeZone)
     {
         $k = int(($a11 - 2415021.076998695) / 29.530588853 + 0.5);
         $last = 0;
         $i = 1;
-        $arc = $this->getSunLongitude($this->getNewMoonDay($k + $i, $timeZone), $timeZone);
+        $arc = Lich_HND::getSunLongitude(Lich_HND::getNewMoonDay($k + $i, $timeZone), $timeZone);
         while (true) {
             $last = $arc;
             $i += 1;
-            $arc = $this->getSunLongitude($this->getNewMoonDay($k + $i, $timeZone), $timeZone);
+            $arc = Lich_HND::getSunLongitude(Lich_HND::getNewMoonDay($k + $i, $timeZone), $timeZone);
 
             if (!($arc != $last and $i < 14)) {
                 break;
@@ -146,23 +145,23 @@ class Lich_HND
         return $i - 1;
     }
 
-    public function S2L($dd, $mm, $yy, $timeZone = 7)
+    public static function S2L($dd, $mm, $yy, $timeZone = 7)
     {
-        $dayNumber = $this->jdFromDate($dd, $mm, $yy);
+        $dayNumber = Lich_HND::jdFromDate($dd, $mm, $yy);
         $k = int(($dayNumber - 2415021.076998695) / 29.530588853);
-        $monthStart = $this->getNewMoonDay($k + 1, $timeZone);
+        $monthStart = Lich_HND::getNewMoonDay($k + 1, $timeZone);
         if ($monthStart > $dayNumber) {
             $monthStart = getNewMoonDay($k, $timeZone);
         }
 
-        $a11 = $this->getLunarMonth11($yy, $timeZone);
+        $a11 = Lich_HND::getLunarMonth11($yy, $timeZone);
         $b11 = $a11;
         if ($a11 >= $monthStart) {
             $lunarYear = $yy;
-            $a11 = $this->getLunarMonth11($yy - 1, $timeZone);
+            $a11 = Lich_HND::getLunarMonth11($yy - 1, $timeZone);
         } else {
             $lunarYear = $yy + 1;
-            $b11 = $this->getLunarMonth11($yy + 1, $timeZone);
+            $b11 = Lich_HND::getLunarMonth11($yy + 1, $timeZone);
         }
 
         $lunarDay = $dayNumber - $monthStart + 1;
@@ -172,7 +171,7 @@ class Lich_HND
         $lunarMonth = $diff + 11;
 
         if ($b11 - $a11 > 365) {
-            $leapMonthDiff = $this->getLeapMonthOffset($a11, $timeZone);
+            $leapMonthDiff = Lich_HND::getLeapMonthOffset($a11, $timeZone);
         }
 
         if ($diff >= $leapMonthDiff) {
@@ -193,15 +192,14 @@ class Lich_HND
         return [$lunarDay, $lunarMonth, $lunarYear, $lunarLeap];
     }
 
-
-    public function L2S($lunarD, $lunarM, $lunarY, $lunarLeap, $tZ = 7)
+    public static function L2S($lunarD, $lunarM, $lunarY, $lunarLeap, $tZ = 7)
     {
         if (lunarM < 11) {
-            $a11 = $this->getLunarMonth11($lunarY - 1, $tZ);
-            $b11 = $this->getLunarMonth11($lunarY, $tZ);
+            $a11 = Lich_HND::getLunarMonth11($lunarY - 1, $tZ);
+            $b11 = Lich_HND::getLunarMonth11($lunarY, $tZ);
         } else {
-            $a11 = $this->getLunarMonth11($lunarY, $tZ);
-            $b11 = $this->getLunarMonth11($lunarY + 1, $tZ);
+            $a11 = Lich_HND::getLunarMonth11($lunarY, $tZ);
+            $b11 = Lich_HND::getLunarMonth11($lunarY + 1, $tZ);
         }
 
         $k = int(0.5 + ($a11 - 2415021.076998695) / 29.530588853);
@@ -211,7 +209,7 @@ class Lich_HND
         }
 
         if ($b11 - $a11 > 365) {
-            $leapOff = $this->getLeapMonthOffset($a11, $tZ);
+            $leapOff = Lich_HND::getLeapMonthOffset($a11, $tZ);
             $leapM = $leapOff - 2;
             if ($leapM < 0) {
                 $leapM += 12;
@@ -224,8 +222,8 @@ class Lich_HND
             }
         }
 
-        $monthStart = $this->getNewMoonDay($k + $off, $tZ);
+        $monthStart = Lich_HND::getNewMoonDay($k + $off, $tZ);
 
-        return $this->jdToDate($monthStart + $lunarD - 1);
+        return Lich_HND::jdToDate($monthStart + $lunarD - 1);
     }
 }

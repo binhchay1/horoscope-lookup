@@ -7,13 +7,6 @@ use App\Driver\Lich_HND;
 
 class AmDuong
 {
-    private $Lich_HND;
-
-    public function __construct(Lich_HND $Lich_HND)
-    {
-        $this->Lich_HND = $Lich_HND;
-    }
-
     const thienCan = [
         [
             "id" => 0,
@@ -115,7 +108,6 @@ class AmDuong
             'amDuong' => -1
         ]
     ];
-
 
     const diaChi = [
         [
@@ -222,13 +214,13 @@ class AmDuong
         ]
     ];
 
-    public function ngayThangNam($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7)
+    public static function ngayThangNam($nn, $tt, $nnn, $duongLich = true, $timeZone = 7)
     {
         $thangNhuan = 0;
 
         if ($nn > 0 and $nn < 32 and $tt < 13 and $tt > 0) {
             if ($duongLich) {
-                $result = $this->Lich_HND->S2L($nn, $tt, $nnn, $timeZone);
+                $result = Lich_HND::S2L($nn, $tt, $nnn, $timeZone);
                 $nn = $result[0];
                 $tt = $result[1];
                 $nnn = $result[2];
@@ -243,36 +235,29 @@ class AmDuong
         }
     }
 
-    public function canChiNgay($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7, $thangNhuan = false)
+    public static function canChiNgay($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7, $thangNhuan = false)
     {
-        if (!duongLich) {
-            $result = $this->Lich_HND->L2S($nn, $tt, $nnnn, $thangNhuan, $timeZone);
+        if (!$duongLich) {
+            $result = Lich_HND::L2S($nn, $tt, $nnnn, $thangNhuan, $timeZone);
             $nn = $result[0];
             $tt = $result[1];
             $nnnn = $result[2];
         }
 
-        $jd = $this->Lich_HND->jdFromDate($nn, $tt, $nnnn);
+        $jd = Lich_HND::jdFromDate($nn, $tt, $nnnn);
         $canNgay = ($jd + 9) % 10 + 1;
         $chiNgay = ($jd + 1) % 12 + 1;
 
         return [$canNgay, $chiNgay];
     }
 
-
-    public function canChiGio($canNgay, $gio)
-    {
-        return false;
-    }
-
-    public function ngayThangNamCanChi($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7)
+    public static function ngayThangNamCanChi($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7)
     {
         if ($duongLich) {
-            $result = $this->ngayThangNam($nn, $tt, $nnnn, $timeZone);
+            $result = AmDuong::ngayThangNam($nn, $tt, $nnnn, $timeZone);
             $nn = $result[0];
             $tt = $result[1];
             $nnnn = $result[2];
-            $thangNhuan = $result[3];
         }
 
         $canThang = ($nnnn * 12 + $tt + 3) % 10 + 1;
@@ -282,9 +267,7 @@ class AmDuong
         return [$canThang, $canNamSinh, $chiNam];
     }
 
-
-
-    public function nguHanh($tenHanh)
+    public static function nguHanh($tenHanh)
     {
         if ($tenHanh == "Kim" or $tenHanh == "K") {
             return (object) [
@@ -339,7 +322,7 @@ class AmDuong
         }
     }
 
-    public function sinhKhac($hanh1, $hanh2)
+    public static function sinhKhac($hanh1, $hanh2)
     {
         $matranSinhKhac = [
             [null, null, null, null, null, null],
@@ -352,7 +335,7 @@ class AmDuong
         return $matranSinhKhac[$hanh1][$hanh2];
     }
 
-    public function nguHanhNapAm($diaChi, $thienCan, $xuatBanMenh = false)
+    public static function nguHanhNapAm($diaChi, $thienCan, $xuatBanMenh = false)
     {
         $banMenh = (object) [
             "K1" => "HẢI TRUNG KIM",
@@ -417,9 +400,7 @@ class AmDuong
         }
     }
 
-
-
-    public function dichCung($cungBanDau, ...$args)
+    public static function dichCung($cungBanDau, ...$args)
     {
         $cungSauKhiDich = int($cungBanDau);
         foreach ($args as $soCungDich) {
@@ -433,7 +414,7 @@ class AmDuong
         return $cungSauKhiDich % 12;
     }
 
-    public function khoangCachCung($cung1, $cung2, $chieu = 1)
+    public static function khoangCachCung($cung1, $cung2, $chieu = 1)
     {
         if ($chieu == 1) {
             return ($cung1 - $cung2 + 12) % 12;
@@ -442,7 +423,7 @@ class AmDuong
         }
     }
 
-    public function timCuc($viTriCungMenhTrenDiaBan, $canNamSinh)
+    public static function timCuc($viTriCungMenhTrenDiaBan, $canNamSinh)
     {
         $canThangGieng = ($canNamSinh * 2 + 1) % 10;
         $canThangMenh = (($viTriCungMenhTrenDiaBan - 3) % 12 + $canThangGieng) % 10;
@@ -450,10 +431,10 @@ class AmDuong
             $canThangMenh = 10;
         }
 
-        return $this->nguHanhNapAm($viTriCungMenhTrenDiaBan, $canThangMenh);
+        return AmDuong::nguHanhNapAm($viTriCungMenhTrenDiaBan, $canThangMenh);
     }
 
-    public function timTuVi($cuc, $ngaySinhAmLich)
+    public static function timTuVi($cuc, $ngaySinhAmLich)
     {
         $cungDan = 3;
         $cucBanDau = $cuc;
@@ -471,10 +452,10 @@ class AmDuong
             $saiLech = -$saiLech;
         }
 
-        return $this->dichCung($cungDan, $saiLech);
+        return AmDuong::dichCung($cungDan, $saiLech);
     }
 
-    public function timTrangSinh($cucSo)
+    public static function timTrangSinh($cucSo)
     {
         if ($cucSo == 6) {
             return 3;
@@ -489,7 +470,7 @@ class AmDuong
         }
     }
 
-    public function timHoaLinh($chiNamSinh, $gioSinh, $gioiTinh, $amDuongNamSinh)
+    public static function timHoaLinh($chiNamSinh, $gioSinh, $gioiTinh, $amDuongNamSinh)
     {
         if (in_array($chiNamSinh, [3, 7, 11])) {
             $khoiCungHoaTinh = 2;
@@ -508,25 +489,25 @@ class AmDuong
         }
 
         if (($gioiTinh * $amDuongNamSinh) == -1) {
-            $viTriHoaTinh = $this->dichCung($khoiCungHoaTinh + 1, (-1) * $gioSinh);
-            $viTriLinhTinh = $this->dichCung($khoiCungLinhTinh - 1, $gioSinh);
+            $viTriHoaTinh = AmDuong::dichCung($khoiCungHoaTinh + 1, (-1) * $gioSinh);
+            $viTriLinhTinh = AmDuong::dichCung($khoiCungLinhTinh - 1, $gioSinh);
         } else if (($gioiTinh * $amDuongNamSinh) == 1) {
-            $viTriHoaTinh = $this->dichCung($khoiCungHoaTinh - 1, $gioSinh);
-            $viTriLinhTinh = $this->dichCung($khoiCungLinhTinh + 1, (-1) * $gioSinh);
+            $viTriHoaTinh = AmDuong::dichCung($khoiCungHoaTinh - 1, $gioSinh);
+            $viTriLinhTinh = AmDuong::dichCung($khoiCungLinhTinh + 1, (-1) * $gioSinh);
         }
 
         return [$viTriHoaTinh, $viTriLinhTinh];
     }
 
 
-    public function timThienKhoi($canNam)
+    public static function timThienKhoi($canNam)
     {
         $khoiViet = [null, 2, 1, 12, 10, 8, 1, 8, 7, 6, 4];
 
         return $khoiViet[$canNam];
     }
 
-    public function timThienQuanThienPhuc($canNam)
+    public static function timThienQuanThienPhuc($canNam)
     {
         $thienQuan = [null, 8, 5, 6, 3, 4, 10, 12, 10, 11, 7];
         $thienPhuc = [null, 10, 9, 1, 12, 4, 3, 7, 6, 7, 6];
@@ -534,7 +515,7 @@ class AmDuong
         return [$thienQuan[$canNam], $thienPhuc[$canNam]];
     }
 
-    public function timCoThan($chiNam)
+    public static function timCoThan($chiNam)
     {
         if (in_array($chiNam, [12, 1, 2])) {
             return 3;
@@ -547,7 +528,7 @@ class AmDuong
         }
     }
 
-    public function timThienMa($chiNam)
+    public static function timThienMa($chiNam)
     {
         $demNghich = $chiNam % 4;
         if ($demNghich == 1) {
@@ -563,7 +544,7 @@ class AmDuong
         }
     }
 
-    public function timPhaToai($chiNam)
+    public static function timPhaToai($chiNam)
     {
         $demNghich = $chiNam % 3;
         if ($demNghich == 0) {
@@ -577,7 +558,7 @@ class AmDuong
         }
     }
 
-    public function timTriet($canNam)
+    public static function timTriet($canNam)
     {
         if ((in_array($canNam, [1, 6]))) {
             return [9, 10];
@@ -594,7 +575,7 @@ class AmDuong
         }
     }
 
-    public function timLuuTru($canNam)
+    public static function timLuuTru($canNam)
     {
         $maTranLuuHa = [null, 10, 11, 8, 5, 6, 7, 9, 4, 12, 3];
         $maTranThienTru = [null, 6, 7, 1, 6, 7, 9, 3, 7, 10, 11];

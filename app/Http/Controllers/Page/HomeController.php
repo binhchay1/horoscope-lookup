@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers\Page;
 
-use App\Driver\TuviDriver;
-use App\Enums\Utility;
+use App\Driver\DiaBan;
+use App\Driver\Utils;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    protected $utility;
-    protected $tuViDriver;
+    protected $utils;
+    protected $diaBan;
+    protected $thienBan;
 
     public function __construct(
-        Utility $utility,
-        TuviDriver $tuViDriver,
+        Utils $utils,
+        DiaBan $diaBan,
+        ThienBan $thienBan
     ) {
-        $this->utility = $utility;
-        $this->tuViDriver = $tuViDriver;
+        $this->utils = $utils;
+        $this->diaBan = $diaBan;
+        $this->thienBan = $thienBan;
     }
 
     public function viewHome()
@@ -32,26 +35,21 @@ class HomeController extends Controller
 
     public function processLookup(Request $request)
     {
-        dd($request);
-        $fullname = $request->get('full_name');
-        $yearOfBirth = $request->get('year');
-        $monthOfBirth = $request->get('month');
-        $dayOfBirth = $request->get('day');
-        $hourOfBirth = $request->get('hour');
-        $gender = $request->get('gender');
+        $hoTen = $request->get('full_name');
+        $namSinh = $request->get('year');
+        $thangSinh = $request->get('month');
+        $ngaySinh = $request->get('day');
+        $gioSinh = $request->get('hour');
+        $gioiTinh = $request->get('gender');
 
-        $this->tuViDriver->buildUser($fullname, $yearOfBirth, $monthOfBirth, $dayOfBirth, $hourOfBirth, $gender);
-        $this->tuViDriver->setCungMenhAndThan();
-        $this->tuViDriver->setCungPhuMau();
-        $this->tuViDriver->setCungPhucDuc();
-        $this->tuViDriver->setCungDienTrach();
-        $this->tuViDriver->setCungQuanLoc();
-        $this->tuViDriver->setCungNoBoc();
-        $this->tuViDriver->setCungThienDi();
-        $this->tuViDriver->setCungTatAch();
-        $this->tuViDriver->setCungTaibach();
-        $this->tuViDriver->setCungTuTuc();
-        $this->tuViDriver->setCungPhuThe();
-        $this->tuViDriver->setCungHuynhDe();
+        $db = $this->utils->lapDiaBan($this->diaBan, $ngaySinh, $thangSinh, $namSinh, $gioSinh, $gioiTinh, $duongLich, $timeZone);
+        $thienBan = $this->thienBan->lapThienBan($ngaySinh, $thangSinh, $namSinh, $gioSinh, $gioiTinh, $hoTen, $db);
+
+        $laso = [
+            'thienBan' => $thienBan,
+            'thapNhiCung' => $db->thapNhiCung
+        ];
+
+        return response()->json($laso);
     }
 }

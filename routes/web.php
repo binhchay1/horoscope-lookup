@@ -29,21 +29,3 @@ Route::get('/purchase', [HomeController::class, 'viewPurchase'])->name('purchase
 Route::get('/lich-su', [HomeController::class, 'viewHistory'])->name('history');
 Route::post('/lookup', [HomeController::class, 'processLookup'])->name('lookup');
 Route::post('/chinh-sach-su-dung', [HomeController::class, 'viewPolicy'])->name('policy');
-
-Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
-    Route::get('/dashboard', [AdminController::class, 'viewDashBoard'])->name('admin.dashboard');
-
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('/list', [UserController::class, 'index'])->name('admin.user.index');
-        Route::get('/add', [UserController::class, 'createUser'])->name('admin.user.create');
-        Route::post('/store', [UserController::class, 'storeUser'])->name('admin.user.store');
-        Route::get('/update/{user}', [UserController::class, 'editUser'])->name('admin.user.edit');
-        Route::post('/update/{user}', [UserController::class, 'updateUser'])->name('admin.user.update');
-        Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('admin.user.delete');
-    });
-
-    Route::group(['prefix' => 'profile'], function () {
-        Route::get('/update/{id}', [ProfileController::class, 'editProfile'])->name('admin.profile.edit');
-        Route::post('/update/{id}', [ProfileController::class, 'updateProfile'])->name('admin.profile.update');
-    });
-});
