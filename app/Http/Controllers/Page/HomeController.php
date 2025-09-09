@@ -4,22 +4,21 @@ namespace App\Http\Controllers\Page;
 
 use App\Driver\DiaBan;
 use App\Driver\Utils;
+use App\Driver\ThienBan;
+use App\Driver\Interpreter;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     protected $utils;
-    protected $diaBan;
     protected $thienBan;
 
     public function __construct(
         Utils $utils,
-        DiaBan $diaBan,
         ThienBan $thienBan
     ) {
         $this->utils = $utils;
-        $this->diaBan = $diaBan;
         $this->thienBan = $thienBan;
     }
 
@@ -41,13 +40,17 @@ class HomeController extends Controller
         $ngaySinh = $request->get('day');
         $gioSinh = $request->get('hour');
         $gioiTinh = $request->get('gender');
+        $duongLich = (bool)($request->get('solar', true));
+        $timeZone = (int)($request->get('tz', 7));
 
-        $db = $this->utils->lapDiaBan($this->diaBan, $ngaySinh, $thangSinh, $namSinh, $gioSinh, $gioiTinh, $duongLich, $timeZone);
+        $db = $this->utils->lapDiaBan(null, $ngaySinh, $thangSinh, $namSinh, $gioSinh, (int)$gioiTinh, $duongLich, $timeZone);
         $thienBan = $this->thienBan->lapThienBan($ngaySinh, $thangSinh, $namSinh, $gioSinh, $gioiTinh, $hoTen, $db);
+        $predictions = Interpreter::duDoan($db);
 
         $laso = [
             'thienBan' => $thienBan,
-            'thapNhiCung' => $db->thapNhiCung
+            'thapNhiCung' => $db->thapNhiCung,
+            'duDoan' => $predictions
         ];
 
         return response()->json($laso);

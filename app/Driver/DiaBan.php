@@ -12,43 +12,51 @@ class CungDiaBan
     public $cungThan = false;
     public $tuanTrung = false;
     public $trietLo = false;
+    public $cungChu;
+    public $cungDaiHan;
+    public $cungTieuHan;
 
-    public function _construct($cungID)
+    public function __construct($cungID)
     {
         $hanhCung = [null, "Thủy", "Thổ", "Mộc", "Mộc", "Thổ", "Hỏa", "Hỏa", "Thổ", "Kim", "Kim", "Thổ", "Thủy"];
         $this->cungSo = $cungID;
         $this->hanhCung = $hanhCung[$cungID];
         $this->cungAmDuong = ($cungID % 2 == 0) ? -1 : 1;
-        $this->cungTen = DiaChi::getTenChi($cungID);
+        $this->cungTen = self::tenDiaChi($cungID);
     }
 
     public function themSao($sao)
     {
-        DacTinhSao::setDacTinh($this->$cungSo, $sao);
-        $this->cungSao[] = $sao->toArray();
+        DacTinhSao::setDacTinh($this->cungSo, $sao);
+        $this->cungSao[] = [
+            'id' => $sao->saoID,
+            'ten' => $sao->saoTen,
+            'ngu_hanh' => $sao->saoNguHanh,
+            'dac_tinh' => $sao->saoDacTinh,
+        ];
 
-        return new static();
+        return $this;
     }
 
     public function setCungChu($tenCungChu)
     {
         $this->cungChu = $tenCungChu;
 
-        return new static();
+        return $this;
     }
 
     public function setDaiHan($daiHan)
     {
         $this->cungDaiHan = $daiHan;
 
-        return new static();
+        return $this;
     }
 
     public function setTieuHan($tieuHan)
     {
-        $this->cungTieuHan = DiaChi::getTenChi($tieuHan + 1);
+        $this->cungTieuHan = self::tenDiaChi($tieuHan + 1);
 
-        return new static();
+        return $this;
     }
 
     public function anCungThan()
@@ -65,6 +73,12 @@ class CungDiaBan
     {
         $this->trietLo = true;
     }
+
+    public static function tenDiaChi($id)
+    {
+        $arr = [null, 'Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
+        return $arr[$id] ?? '';
+    }
 }
 
 class DiaBan
@@ -79,45 +93,36 @@ class DiaBan
 
     public function __construct($thangSinhAmLich, $gioSinhAmLich)
     {
-        $this->$thangSinhAmLich = $thangSinhAmLich;
-        $this->$gioSinhAmLich = $gioSinhAmLich;
+        $this->thangSinhAmLich = $thangSinhAmLich;
+        $this->gioSinhAmLich = $gioSinhAmLich;
         for ($i = 1; $i <= 12; $i++) {
-            $this->$thapNhiCung[] = new CungDiaBan($i);
+            $this->thapNhiCung[$i] = new CungDiaBan($i);
         }
 
+        $this->cungChu($this->thangSinhAmLich, $this->gioSinhAmLich);
         $this->nhapCungChu();
         $this->nhapCungThan();
     }
 
     public function cungChu($thangSinhAmLich, $gioSinhAmLich)
     {
-        $this->cungThan = DichCung::getCung(3, $thangSinhAmLich - 1, $gioSinhAmLich - 1);
-        $this->cungMenh = DichCung::getCung(3, $thangSinhAmLich - 1, - ($gioSinhAmLich) + 1);
-        $cungPhuMau = AmDuong::dichCung($this->cungMenh, 1);
-        $cungPhucDuc = AmDuong::dichCung($this->cungMenh, 2);
-        $cungDienTrach = AmDuong::dichCung($this->cungMenh, 3);
-        $cungQuanLoc = AmDuong::dichCung($this->cungMenh, 4);
+        $this->cungThan = AmDuong::dichCung(3, $thangSinhAmLich - 1, $gioSinhAmLich - 1);
+        $this->cungMenh = AmDuong::dichCung(3, $thangSinhAmLich - 1, -$gioSinhAmLich + 1);
         $this->cungNoboc = AmDuong::dichCung($this->cungMenh, 5);
-        $cungThienDi = AmDuong::dichCung($this->cungMenh, 6);
-        $this->cungTatAch = AmDuong::dichCung($this->cungMenh, 7);
-        $cungTaiBach = AmDuong::dichCung($this->cungMenh, 8);
-        $cungTuTuc = AmDuong::dichCung($this->cungMenh, 9);
-        $cungTheThiep = AmDuong::dichCung($this->cungMenh, 10);
-        $cungHuynhDe = AmDuong::dichCung($this->cungMenh, 11);
 
         $cungChuThapNhiCung = [
             ['cungId' => 1, 'tenCung' => 'Mệnh', 'cungSoDiaBan' => $this->cungMenh],
-            ['cungId' => 2, 'tenCung' => 'Phụ mẫu', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 1)],
-            ['cungId' => 3, 'tenCung' => 'Phúc đức', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 2)],
-            ['cungId' => 4, 'tenCung' => 'Điền trạch', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 3)],
-            ['cungId' => 5, 'tenCung' => 'Quan lộc', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 4)],
-            ['cungId' => 6, 'tenCung' => 'Nô bộc', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 5)],
-            ['cungId' => 7, 'tenCung' => 'Thiên di', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 6)],
-            ['cungId' => 8, 'tenCung' => 'Tật Ách', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 7)],
-            ['cungId' => 9, 'tenCung' => 'Tài Bạch', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 8)],
-            ['cungId' => 10, 'tenCung' => 'Tử tức', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 9)],
-            ['cungId' => 11, 'tenCung' => 'Phu thê', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 10)],
-            ['cungId' => 12, 'tenCung' => 'Huynh đệ', 'cungSoDiaBan' => DichCung::getCung($this->cungMenh, 11)]
+            ['cungId' => 2, 'tenCung' => 'Phụ mẫu', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 1)],
+            ['cungId' => 3, 'tenCung' => 'Phúc đức', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 2)],
+            ['cungId' => 4, 'tenCung' => 'Điền trạch', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 3)],
+            ['cungId' => 5, 'tenCung' => 'Quan lộc', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 4)],
+            ['cungId' => 6, 'tenCung' => 'Nô bộc', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 5)],
+            ['cungId' => 7, 'tenCung' => 'Thiên di', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 6)],
+            ['cungId' => 8, 'tenCung' => 'Tật Ách', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 7)],
+            ['cungId' => 9, 'tenCung' => 'Tài Bạch', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 8)],
+            ['cungId' => 10, 'tenCung' => 'Tử tức', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 9)],
+            ['cungId' => 11, 'tenCung' => 'Phu thê', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 10)],
+            ['cungId' => 12, 'tenCung' => 'Huynh đệ', 'cungSoDiaBan' => AmDuong::dichCung($this->cungMenh, 11)]
         ];
 
         return $cungChuThapNhiCung;
@@ -125,8 +130,8 @@ class DiaBan
 
     public function nhapCungChu()
     {
-        foreach ($this->cungChu($this->$thangSinhAmLich, $this->$gioSinhAmLich) as $cung) {
-            $this->$thapNhiCung[$cung['cungSoDiaBan']]->setCungChu($cung['tenCung']);
+        foreach ($this->cungChu($this->thangSinhAmLich, $this->gioSinhAmLich) as $cung) {
+            $this->thapNhiCung[$cung['cungSoDiaBan']]->setCungChu($cung['tenCung']);
         }
 
         return $this;
@@ -135,7 +140,7 @@ class DiaBan
     public function nhapDaiHan($cucSo, $gioiTinh)
     {
         foreach ($this->thapNhiCung as $cung) {
-            $khoangCach = KhoangCachCung::getKhoangCach($cung->cungSo, $this->cungMenh, $gioiTinh);
+            $khoangCach = AmDuong::khoangCachCung($cung->cungSo, $this->cungMenh, $gioiTinh);
             $cung->setDaiHan($cucSo + $khoangCach * 10);
         }
 
@@ -144,9 +149,9 @@ class DiaBan
 
     public function nhapTieuHan($khoiTieuHan, $gioiTinh, $chiNam)
     {
-        $viTriCungTy1 = DichCung::getCung($khoiTieuHan, -$gioiTinh * ($chiNam - 1));
+        $viTriCungTy1 = AmDuong::dichCung($khoiTieuHan, -$gioiTinh * ($chiNam - 1));
         foreach ($this->thapNhiCung as $cung) {
-            $khoangCach = KhoangCachCung::getKhoangCach($cung->cungSo, $viTriCungTy1, $gioiTinh);
+            $khoangCach = AmDuong::khoangCachCung($cung->cungSo, $viTriCungTy1, $gioiTinh);
             $cung->setTieuHan($khoangCach);
         }
 
@@ -155,7 +160,9 @@ class DiaBan
 
     public function nhapCungThan()
     {
-        $this->thapNhiCung[$this->cungThan]->anCungThan();
+        if (!empty($this->cungThan)) {
+            $this->thapNhiCung[$this->cungThan]->anCungThan();
+        }
 
         return $this;
     }
@@ -163,7 +170,7 @@ class DiaBan
     public function nhapSao($cungSo, ...$args)
     {
         foreach ($args as $sao) {
-            $this->$thapNhiCung[$cungSo]->themSao($sao);
+            $this->thapNhiCung[$cungSo]->themSao($sao);
         }
 
         return $this;
@@ -172,7 +179,7 @@ class DiaBan
     public function nhapTuan(...$args)
     {
         foreach ($args as $cung) {
-            $this->$thapNhiCung[$cung]->anTuan();
+            $this->thapNhiCung[$cung]->anTuan();
         }
 
         return $this;
@@ -207,8 +214,9 @@ class DacTinhSao
             12 => ["Tử vi", "V", "B", "Đ", "M", "B", "M", "B", "Đ", "M", "B", "M", "V"]
         ];
 
-        if (array_key_exists($sao->saoName, $maTranDacTinh)) {
-            $sao->saoDacTinh = $maTranDacTinh[$sao->saoName][$viTriDiaBan];
+        $saoTen = $sao->saoTen;
+        if (array_key_exists($viTriDiaBan, $maTranDacTinh) && $maTranDacTinh[$viTriDiaBan][0] === "Tử vi" && $saoTen === "Tử vi") {
+            $sao->saoDacTinh = $maTranDacTinh[$viTriDiaBan][$viTriDiaBan];
         }
     }
 }

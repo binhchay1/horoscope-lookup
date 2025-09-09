@@ -7,7 +7,7 @@ use App\Driver\Lich_HND;
 
 class AmDuong
 {
-    const thienCan = [
+    const THIEN_CAN = [
         [
             "id" => 0,
             "chuCaiDau" => '',
@@ -109,11 +109,11 @@ class AmDuong
         ]
     ];
 
-    const diaChi = [
+    const DIA_CHI = [
         [
             "id" => 0,
             "tenChi" => "Hem có",
-            "tenHanh" => " =>D",
+            "tenHanh" => "",
             "amDuong" => 0
         ],
         [
@@ -218,21 +218,19 @@ class AmDuong
     {
         $thangNhuan = 0;
 
-        if ($nn > 0 and $nn < 32 and $tt < 13 and $tt > 0) {
+        if ($nn > 0 && $nn < 32 && $tt > 0 && $tt < 13) {
             if ($duongLich) {
                 $result = Lich_HND::S2L($nn, $tt, $nnn, $timeZone);
                 $nn = $result[0];
                 $tt = $result[1];
                 $nnn = $result[2];
                 $thangNhuan = $result[3];
-
-                $return = [$nn, $tt, $nnn, $thangNhuan];
-
-                return $return;
+                return [$nn, $tt, $nnn, $thangNhuan];
+            } else {
+                return [$nn, $tt, $nnn, $thangNhuan];
             }
-        } else {
-            Exception('Ngày, tháng, năm không chính xác.');
         }
+        throw new Exception('Ngày, tháng, năm không chính xác.');
     }
 
     public static function canChiNgay($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7, $thangNhuan = false)
@@ -254,22 +252,20 @@ class AmDuong
     public static function ngayThangNamCanChi($nn, $tt, $nnnn, $duongLich = true, $timeZone = 7)
     {
         if ($duongLich) {
-            $result = AmDuong::ngayThangNam($nn, $tt, $nnnn, $timeZone);
+            $result = AmDuong::ngayThangNam($nn, $tt, $nnnn, true, $timeZone);
             $nn = $result[0];
             $tt = $result[1];
             $nnnn = $result[2];
         }
-
         $canThang = ($nnnn * 12 + $tt + 3) % 10 + 1;
         $canNamSinh = ($nnnn + 6) % 10 + 1;
         $chiNam = ($nnnn + 8) % 12 + 1;
-
         return [$canThang, $canNamSinh, $chiNam];
     }
 
     public static function nguHanh($tenHanh)
     {
-        if ($tenHanh == "Kim" or $tenHanh == "K") {
+        if ($tenHanh == "Kim" || $tenHanh == "K") {
             return (object) [
                 "id" => 1,
                 "tenHanh" => "Kim",
@@ -277,7 +273,7 @@ class AmDuong
                 "tenCuc" => "Kim tứ Cục",
                 "css" => "hanhKim"
             ];
-        } else if ($tenHanh == "Moc" or $tenHanh == "M") {
+        } else if ($tenHanh == "Moc" || $tenHanh == "M") {
             return (object) [
                 "id" => 2,
                 "tenHanh" => "Mộc",
@@ -285,7 +281,7 @@ class AmDuong
                 "tenCuc" => "Mộc tam Cục",
                 "css" => "hanhMoc"
             ];
-        } else if ($tenHanh == "Thuy" or $tenHanh == "T") {
+        } else if ($tenHanh == "Thuy" || $tenHanh == "T") {
             return (object) [
                 "id" => 3,
                 "tenHanh" => "Thủy",
@@ -293,7 +289,7 @@ class AmDuong
                 "tenCuc" => "Thủy nhị Cục",
                 "css" => "hanhThuy"
             ];
-        } else if ($tenHanh == "Hoa" or $tenHanh == "H") {
+        } else if ($tenHanh == "Hoa" || $tenHanh == "H") {
             return (object) [
                 "id" => 4,
                 "tenHanh" => "Hỏa",
@@ -301,15 +297,7 @@ class AmDuong
                 "tenCuc" => "Hỏa lục Cục",
                 "css" => "hanhHoa"
             ];
-        } else if ($tenHanh == "Hoa" or $tenHanh == "H") {
-            return (object) [
-                "id" => 4,
-                "tenHanh" => "Hỏa",
-                "cuc" => 6,
-                "tenCuc" => "Hỏa lục Cục",
-                "css" => "hanhHoa"
-            ];
-        } else if ($tenHanh == "Tho" or $tenHanh == "O") {
+        } else if ($tenHanh == "Tho" || $tenHanh == "O") {
             return (object) [
                 "id" => 5,
                 "tenHanh" => "Thổ",
@@ -318,7 +306,7 @@ class AmDuong
                 "css" => "hanhTho"
             ];
         } else {
-            Exception("Tên Hành phải thuộc Kim (K), Mộc (M), Thủy (T), Hỏa (H) hoặc Thổ (O)");
+            throw new Exception("Tên Hành phải thuộc Kim (K), Mộc (M), Thủy (T), Hỏa (H) hoặc Thổ (O)");
         }
     }
 
@@ -387,50 +375,47 @@ class AmDuong
         ];
 
         try {
-            $nh = $matranNapAm[$diaChi][$thienCan];
-            if (in_array($nh[0], ["K", "M", "T", "H", "O"])) {
-                if ($xuatBanMenh) {
-                    return $banMenh[$nh];
-                } else {
-                    return $nh[0];
+            $nh = $matranNapAm[$diaChi][$thienCan] ?? false;
+            if ($nh !== false) {
+                $hanh = substr($nh, 0, 1);
+                if (in_array($hanh, ["K", "M", "T", "H", "O"])) {
+                    if ($xuatBanMenh) {
+                        return $banMenh->$nh;
+                    }
+                    return $hanh;
                 }
             }
         } catch (Exception $e) {
-            Exception($e);
+            throw $e;
         }
+        throw new Exception("Không xác định được Ngũ hành nạp âm");
     }
 
     public static function dichCung($cungBanDau, ...$args)
     {
-        $cungSauKhiDich = int($cungBanDau);
+        $cungSauKhiDich = (int)$cungBanDau;
         foreach ($args as $soCungDich) {
-            $cungSauKhiDich += int($soCungDich);
+            $cungSauKhiDich += (int)$soCungDich;
         }
-
-        if ($cungSauKhiDich % 12 == 0) {
-            return 12;
-        }
-
-        return $cungSauKhiDich % 12;
+        $mod = $cungSauKhiDich % 12;
+        return $mod === 0 ? 12 : $mod;
     }
 
     public static function khoangCachCung($cung1, $cung2, $chieu = 1)
     {
         if ($chieu == 1) {
             return ($cung1 - $cung2 + 12) % 12;
-        } else {
-            return ($cung2 - $cung1 + 12) % 12;
         }
+        return ($cung2 - $cung1 + 12) % 12;
     }
 
     public static function timCuc($viTriCungMenhTrenDiaBan, $canNamSinh)
     {
         $canThangGieng = ($canNamSinh * 2 + 1) % 10;
-        $canThangMenh = (($viTriCungMenhTrenDiaBan - 3) % 12 + $canThangGieng) % 10;
+        $canThangMenh = (($viTriCungMenhTrenDiaBan - 3 + 12) % 12 + $canThangGieng) % 10;
         if ($canThangMenh == 0) {
             $canThangMenh = 10;
         }
-
         return AmDuong::nguHanhNapAm($viTriCungMenhTrenDiaBan, $canThangMenh);
     }
 
@@ -439,19 +424,16 @@ class AmDuong
         $cungDan = 3;
         $cucBanDau = $cuc;
         if (!in_array($cuc, [2, 3, 4, 5, 6])) {
-            Exception("Số cục phải là 2, 3, 4, 5, 6");
+            throw new Exception("Số cục phải là 2, 3, 4, 5, 6");
         }
-
         while ($cuc < $ngaySinhAmLich) {
             $cuc += $cucBanDau;
             $cungDan += 1;
         }
-
         $saiLech = $cuc - $ngaySinhAmLich;
         if ($saiLech % 2 == 1) {
             $saiLech = -$saiLech;
         }
-
         return AmDuong::dichCung($cungDan, $saiLech);
     }
 
@@ -466,7 +448,7 @@ class AmDuong
         } else if ($cucSo == 3) {
             return 12;
         } else {
-            Exception("Không tìm được cung an sao Trường sinh");
+            throw new Exception("Không tìm được cung an sao Trường sinh");
         }
     }
 
@@ -485,17 +467,16 @@ class AmDuong
             $khoiCungHoaTinh = 10;
             $khoiCungLinhTinh = 11;
         } else {
-            Exception("Không thể khởi cung tìm Hỏa-Linh");
+            throw new Exception("Không thể khởi cung tìm Hỏa-Linh");
         }
 
         if (($gioiTinh * $amDuongNamSinh) == -1) {
             $viTriHoaTinh = AmDuong::dichCung($khoiCungHoaTinh + 1, (-1) * $gioSinh);
             $viTriLinhTinh = AmDuong::dichCung($khoiCungLinhTinh - 1, $gioSinh);
-        } else if (($gioiTinh * $amDuongNamSinh) == 1) {
+        } else {
             $viTriHoaTinh = AmDuong::dichCung($khoiCungHoaTinh - 1, $gioSinh);
             $viTriLinhTinh = AmDuong::dichCung($khoiCungLinhTinh + 1, (-1) * $gioSinh);
         }
-
         return [$viTriHoaTinh, $viTriLinhTinh];
     }
 
@@ -540,7 +521,7 @@ class AmDuong
         } else if ($demNghich == 0) {
             return 6;
         } else {
-            Exception("Không tìm được Thiên mã");
+            throw new Exception("Không tìm được Thiên mã");
         }
     }
 
@@ -554,7 +535,7 @@ class AmDuong
         } else if ($demNghich == 2) {
             return 2;
         } else {
-            Exception("Không tìm được Phá toái");
+            throw new Exception("Không tìm được Phá toái");
         }
     }
 
@@ -571,7 +552,7 @@ class AmDuong
         } else if (in_array($canNam, [5, 10])) {
             return [1, 2];
         } else {
-            Exception("Không tìm được Triệt");
+            throw new Exception("Không tìm được Triệt");
         }
     }
 

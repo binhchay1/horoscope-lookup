@@ -7,6 +7,35 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Horoscope Lookup (Tử vi)
+
+API và web app tra cứu lá số Tử Vi. Dự án xây dựng Thiên bàn, Địa bàn, an cung – an sao, và sinh ra diễn giải cơ bản.
+
+### Endpoint
+
+- POST `/lookup`
+  - body: `{ full_name, year, month, day, hour (1..12), gender (1=nam,-1=nữ), solar=true|false, tz=7 }`
+  - response: `{ thienBan, thapNhiCung, duDoan }`
+
+### Driver core
+
+- `app/Driver/Lich_HND.php`: chuyển đổi âm dương lịch
+- `app/Driver/AmDuong.php`: ngũ hành, dịch cung, an cục, tiện ích
+- `app/Driver/DiaBan.php`: mô hình 12 cung, nhập sao/hạn
+- `app/Driver/Sao.php`: định nghĩa sao, danh mục sao
+- `app/Driver/Utils.php`: an sao chủ, phụ, hóa lộc/quyền/khoa/kỵ, lập lá số
+- `app/Driver/ThienBan.php`: thông tin Thiên bàn
+- `app/Driver/Interpreter.php`: sinh diễn giải cơ bản theo cung – sao
+
+### Chạy nhanh
+
+1. `cp .env.example .env && php artisan key:generate`
+2. `composer install && npm install && npm run build`
+3. `php artisan serve`
+4. Gọi API `POST /lookup`
+
+---
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
